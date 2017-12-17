@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import StatsPassing from './StatsPassing';
 
 import { connect } from 'react-redux';
@@ -6,6 +7,10 @@ import { bindActionCreators } from 'redux';
 import { scrapePassing } from '../actions/scrapeAction';
 
 class Home extends React.Component {
+
+    componentDidMount() {
+        axios.get('/passing');
+    }
 
     render() {
         return (

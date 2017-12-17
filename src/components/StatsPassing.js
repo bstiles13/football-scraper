@@ -3,7 +3,7 @@ import React from 'react';
 export default class StatsPassing extends React.Component {
 
     componentDidMount() {
-        this.props.scrape();
+        // this.props.scrape();
     }
 
     render() {
