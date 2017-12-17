@@ -9,7 +9,7 @@ import { scrapePassing } from '../actions/scrapeAction';
 class Home extends React.Component {
 
     componentDidMount() {
-        axios.get('/passing');
+        axios.get('/scrapepassing');
     }
 
     render() {

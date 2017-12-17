@@ -2,8 +2,9 @@ const express = require('express');
 const router = new express.Router();
 const request = require('request');
 const cheerio = require('cheerio');
+const Passing = require('../models/passing.js');
 
-router.get('/passing', (req, res) => {
+router.get('/scrapepassing', (req, res) => {
     let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=PASSING&season=2017&seasonType=REG";
     let stats = [];
 
@@ -13,14 +14,23 @@ router.get('/passing', (req, res) => {
         $('table tr').each(function (i, td) {
 
             let player = {};
-            player.name = $(this).children('td:nth-child(2)').text().trim();
-            player.yards = $(this).children('td:nth-child(9)').text().trim();
-            player.touchdowns = $(this).children('td:nth-child(12)').text().trim();
-            player.interceptions = $(this).children('td:nth-child(13)').text().trim();                
+            player.player = $(this).children('td:nth-child(2)').text().trim();
+            player.completions = parseInt($(this).children('td:nth-child(5)').text().trim());
+            player.attempts = parseInt($(this).children('td:nth-child(6)').text().trim());            
+            player.yards = parseFloat( $(this).children('td:nth-child(9)').text().trim().replace(/,/g,'') );
+            player.touchdowns = parseInt($(this).children('td:nth-child(12)').text().trim());
+            player.interceptions = parseInt($(this).children('td:nth-child(13)').text().trim());
+            player.rating = parseInt($(this).children('td:nth-child(20)').text().trim());                            
             stats.push(player);
         })
-        console.log(stats);
-        res.send(stats);
+        cleanStats = stats.slice(1);
+        console.log(cleanStats);        
+        Passing.remove({}, () => {
+            Passing.create(cleanStats).then(data => {
+                console.log(data);
+                res.json(data.data);
+            })
+        });
     });
 })
 
