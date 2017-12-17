@@ -1,10 +1,12 @@
 import React from 'react';
-import tasks from '../utils/tasks.js';
+import axios from 'axios';
 
 export default class StatsPassing extends React.Component {
 
     componentDidMount() {
-        tasks.getPassing();
+        axios.get('/passing').then(data => {
+            console.log(data.data);
+        });
     }
 
     render() {
