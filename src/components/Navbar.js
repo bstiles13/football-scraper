@@ -1,32 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Navbar extends React.Component {
     render() {
         return (
             <ul className="nav nav-tabs">
-                <li class="nav-item">
-                    <span class="nav-link disabled" href="#">Player Stats</span>
+                <li className="nav-item">
+                    <span className="nav-link disabled" href="#">Player Stats</span>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Passing</a>
+                    <Link to={'/'} className='nav-link'>Passing</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/rushing">Rushing</a>
+                    <Link to={'/rushing'} className='nav-link'>Rushing</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/receiving">Receiving</a>
+                    <Link to={'/receiving'} className='nav-link'>Receiving</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/tackles">Tackles</a>
+                    <Link to={'/tackles'} className='nav-link'>Tackles</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/sacks">Sacks</a>
+                    <Link to={'/sacks'} className='nav-link'>Sacks</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/interceptions">Interceptions</a>
+                    <Link to={'/interceptions'} className='nav-link'>interceptions</Link>
                 </li>
-                <li class="nav-item">
-                    <span class="nav-link disabled" href="#">Team Stats</span>
+                <li className="nav-item">
+                    <span className="nav-link disabled" href="#">Team Stats</span>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="/interceptions">Offense</a>

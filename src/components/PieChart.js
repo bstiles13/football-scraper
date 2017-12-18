@@ -3,6 +3,10 @@ let d3 = require('d3');
 
 export default class PieChart extends React.Component {
 
+    componentDidMount() {
+        { this.props.stats ? this.buildChart() : false };        
+    }
+
     componentDidUpdate(prevProps) {
         { this.props.stats != prevProps.stats ? this.buildChart() : false };
     }
