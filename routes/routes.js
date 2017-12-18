@@ -96,7 +96,8 @@ router.get('/scrapetackles', (req, res) => {
             let player = {};
             player.player = $(this).children('td:nth-child(2)').text().trim();
             player.team = $(this).children('td:nth-child(3)').text().trim();
-            player.position = $(this).children('td:nth-child(4)').text().trim();                        
+            player.position = $(this).children('td:nth-child(4)').text().trim();
+            player.tackles = parseInt($(this).children('td:nth-child(5)').text().trim());                        
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
@@ -104,7 +105,7 @@ router.get('/scrapetackles', (req, res) => {
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
         })
-        cleanStats = stats.slice(1);
+        cleanStats = stats.slice(2);
         console.log(cleanStats);      
         res.json(cleanStats);  
     });
@@ -122,7 +123,8 @@ router.get('/scrapesacks', (req, res) => {
             let player = {};
             player.player = $(this).children('td:nth-child(2)').text().trim();
             player.team = $(this).children('td:nth-child(3)').text().trim();
-            player.position = $(this).children('td:nth-child(4)').text().trim();                        
+            player.position = $(this).children('td:nth-child(4)').text().trim();
+            player.tackles = parseInt($(this).children('td:nth-child(5)').text().trim());                                    
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
@@ -148,7 +150,8 @@ router.get('/scrapeinterceptions', (req, res) => {
             let player = {};
             player.player = $(this).children('td:nth-child(2)').text().trim();
             player.team = $(this).children('td:nth-child(3)').text().trim();
-            player.position = $(this).children('td:nth-child(4)').text().trim();                        
+            player.position = $(this).children('td:nth-child(4)').text().trim();
+            player.tackles = parseInt($(this).children('td:nth-child(5)').text().trim());                                    
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
