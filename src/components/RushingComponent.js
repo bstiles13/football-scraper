@@ -1,5 +1,6 @@
 import React from 'react';
 import PieChart from './PieChart';
+import RushingTable from './RushingTable';
 
 export default class RushingComponent extends React.Component {
     render() {
@@ -25,6 +26,7 @@ export default class RushingComponent extends React.Component {
                         <PieChart stats={this.props.stats} type='fumbles' />
                     </div>
                 </div>
+                <RushingTable stats={this.props.stats} />
             </div>
         )
     }
