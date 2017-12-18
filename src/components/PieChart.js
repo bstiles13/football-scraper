@@ -3,13 +3,13 @@ let d3 = require('d3');
 
 export default class PieChart extends React.Component {
 
-    componentDidUpdate() {
-        this.buildChart();
+    componentDidUpdate(prevProps) {
+        { this.props.stats != prevProps.stats ? this.buildChart() : false };
     }
 
     buildChart() {
         let that = this;
-        let dataset = this.props.stats.passing.sort(function (a, b) {
+        let dataset = this.props.stats.sort(function (a, b) {
             return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
         });
         dataset = dataset.slice(0, 5);
@@ -54,7 +54,7 @@ export default class PieChart extends React.Component {
 
     buildLegend() {
         let that = this;
-        let dataset = this.props.stats.passing.sort(function (a, b) {
+        let dataset = this.props.stats.sort(function (a, b) {
             return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
         });
         dataset = dataset.slice(0, 5);
@@ -72,8 +72,8 @@ export default class PieChart extends React.Component {
         return (
             <div>
                 {
-                    this.props.stats.passing === null
-                        ? <img src='https://media.giphy.com/media/3o7aDczpCChShEG27S/giphy.gif' style={{ width: '200px', height: '200px'}}/>
+                    this.props.stats == null
+                        ? <img src='https://media.giphy.com/media/3o7aDczpCChShEG27S/giphy.gif' style={{ width: '200px', height: '200px' }} />
                         : (
                             <div className='pie-chart'>
                                 <div id={'chart-' + this.props.type} className='chart'></div>

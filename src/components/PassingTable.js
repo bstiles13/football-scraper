@@ -3,7 +3,7 @@ import React from 'react';
 export default class PassingTable extends React.Component {
 
     renderRows() {
-        let passingStats = this.props.stats.passing;
+        let passingStats = this.props.stats;
         if (passingStats) {
             passingStats.sort(function (a, b) {
                 return parseFloat(b.yards) - parseFloat(a.yards);

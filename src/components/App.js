@@ -7,12 +7,17 @@ import PassingComponent from './PassingComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { scrapePassing } from '../actions/scrapeAction';
+import { scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions } from '../actions/scrapeAction';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.scrapePassing();
+    this.props.scrapeRushing();
+    this.props.scrapeReceiving();    
+    this.props.scrapeTackles();    
+    this.props.scrapeSacks();    
+    this.props.scrapeInterceptions();        
   }
 
   render() {
@@ -23,7 +28,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Route exact path="/" render={ props => <PassingComponent stats={this.props.stats}/> } />
+          <Route exact path="/" render={ props => <PassingComponent stats={this.props.stats.passing}/> } />
         </div>
       </BrowserRouter>
     );
@@ -38,7 +43,12 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    scrapePassing: scrapePassing
+    scrapePassing: scrapePassing,
+    scrapeRushing: scrapeRushing,
+    scrapeReceiving: scrapeReceiving,
+    scrapeTackles: scrapeTackles,
+    scrapeSacks: scrapeSacks,
+    scrapeInterceptions: scrapeInterceptions
   }, dispatch)
 }
 
