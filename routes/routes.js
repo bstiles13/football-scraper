@@ -101,6 +101,7 @@ router.get('/scrapetackles', (req, res) => {
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
+            player.deflections = parseInt($(this).children('td:nth-child(10)').text().trim());            
             player.interceptions = parseInt($(this).children('td:nth-child(11)').text().trim());
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
@@ -128,6 +129,7 @@ router.get('/scrapesacks', (req, res) => {
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
+            player.deflections = parseInt($(this).children('td:nth-child(10)').text().trim());            
             player.interceptions = parseInt($(this).children('td:nth-child(11)').text().trim());
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
@@ -155,7 +157,9 @@ router.get('/scrapeinterceptions', (req, res) => {
             player.solo = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.assisted = parseFloat( $(this).children('td:nth-child(7)').text().trim());
             player.sacks = parseInt($(this).children('td:nth-child(8)').text().trim());
+            player.deflections = parseInt($(this).children('td:nth-child(10)').text().trim());
             player.interceptions = parseInt($(this).children('td:nth-child(11)').text().trim());
+            player.touchdowns = parseInt($(this).children('td:nth-child(12)').text().trim());            
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
         })

@@ -11,18 +11,12 @@ export default class TacklesComponent extends React.Component {
                         <PieChart stats={this.props.stats} type='tackles' />
                     </div>
                     <div className='charts-child'>
-                        <h5>Sacks</h5>
-                        <PieChart stats={this.props.stats} type='sacks' />
-                    </div>
-                </div>
-                <div className='charts-container'>
-                    <div className='charts-child'>
-                        <h5>Interceptions</h5>
-                        <PieChart stats={this.props.stats} type='interceptions' />
+                        <h5>Solo</h5>
+                        <PieChart stats={this.props.stats} type='solo' />
                     </div>
                     <div className='charts-child'>
-                        <h5>Fumbles</h5>
-                        <PieChart stats={this.props.stats} type='fumbles' />
+                        <h5>Assisted</h5>
+                        <PieChart stats={this.props.stats} type='assisted' />
                     </div>
                 </div>
             </div>

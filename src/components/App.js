@@ -8,6 +8,7 @@ import RushingComponent from './RushingComponent';
 import ReceivingComponent from './ReceivingComponent';
 import TacklesComponent from './TacklesComponent';
 import SacksComponent from './SacksComponent';
+import InterceptionsComponent from './InterceptionsComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -21,7 +22,7 @@ class App extends Component {
     this.props.scrapeReceiving();    
     this.props.scrapeTackles();    
     this.props.scrapeSacks();    
-    this.props.scrapeInterceptions();        
+    this.props.scrapeInterceptions()  
   }
 
   render() {
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path="/receiving" render={ props => <ReceivingComponent stats={this.props.stats.receiving}/> } />
           <Route exact path="/tackles" render={ props => <TacklesComponent stats={this.props.stats.tackles}/> } />
           <Route exact path="/sacks" render={ props => <SacksComponent stats={this.props.stats.sacks}/> } />
+          <Route exact path="/interceptions" render={ props => <InterceptionsComponent stats={this.props.stats.interceptions}/> } />
         </div>
       </BrowserRouter>
     );

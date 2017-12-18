@@ -1,22 +1,22 @@
 import React from 'react';
 import PieChart from './PieChart';
 
-export default class SacksComponent extends React.Component {
+export default class InterceptionsComponent extends React.Component {
     render() {
         return (
             <div>
                 <div className='charts-container'>
                     <div className='charts-child'>
-                        <h5>Sacks</h5>
-                        <PieChart stats={this.props.stats} type='sacks' />
+                        <h5>Interceptions</h5>
+                        <PieChart stats={this.props.stats} type='interceptions' />
                     </div>
                     <div className='charts-child'>
-                        <h5>Tackles</h5>
-                        <PieChart stats={this.props.stats} type='tackles' />
+                        <h5>Deflections</h5>
+                        <PieChart stats={this.props.stats} type='deflections' />
                     </div>
                     <div className='charts-child'>
-                        <h5>Fumbles</h5>
-                        <PieChart stats={this.props.stats} type='fumbles' />
+                        <h5>Touchdowns</h5>
+                        <PieChart stats={this.props.stats} type='touchdowns' />
                     </div>
                 </div>
             </div>
