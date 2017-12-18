@@ -4,6 +4,7 @@ import logo from '../logo.svg';
 import './App.css';
 import axios from 'axios';
 import Navbar from './Navbar';
+import Home from './Home';
 import PassingComponent from './PassingComponent';
 import RushingComponent from './RushingComponent';
 import ReceivingComponent from './ReceivingComponent';
@@ -35,12 +36,13 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <Navbar />
-          <Route exact path="/" render={props => <PassingComponent stats={this.props.stats.passing} />} />
-          <Route exact path="/rushing" render={props => <RushingComponent stats={this.props.stats.rushing} />} />
-          <Route exact path="/receiving" render={props => <ReceivingComponent stats={this.props.stats.receiving} />} />
-          <Route exact path="/tackles" render={props => <TacklesComponent stats={this.props.stats.tackles} />} />
-          <Route exact path="/sacks" render={props => <SacksComponent stats={this.props.stats.sacks} />} />
-          <Route exact path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
+          <Route exact path="/" render={props => <Home stats={this.props.stats} />} />
+          <Route path="/passing" render={props => <PassingComponent stats={this.props.stats.passing} />} />
+          <Route path="/rushing" render={props => <RushingComponent stats={this.props.stats.rushing} />} />
+          <Route path="/receiving" render={props => <ReceivingComponent stats={this.props.stats.receiving} />} />
+          <Route path="/tackles" render={props => <TacklesComponent stats={this.props.stats.tackles} />} />
+          <Route path="/sacks" render={props => <SacksComponent stats={this.props.stats.sacks} />} />
+          <Route path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
         </div>
       </BrowserRouter>
     );

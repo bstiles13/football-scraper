@@ -4,6 +4,51 @@ body {
   font-family: sans-serif;
 }
 
+#home {
+  padding-top: 30px;
+}
+
+.home-row {
+  display: flex;
+}
+
+.preview-container {
+  flex: 1;
+  margin: 10px 50px;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(65, 108, 250);
+  margin-bottom: 5px;
+  padding: 3px 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.preview-content {
+  display: flex;
+}
+
+.preview-image {
+  /* flex: 1; */
+}
+
+.preview-list {
+  flex: 2;
+}
+
+.preview-row {
+  display: flex;
+  text-align: left;
+}
+
+.preview-column {
+  min-width: 150px;
+  margin-left: 10px;
+}
+
 .defense-container {
   display: flex;
   padding: 30px;
