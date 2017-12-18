@@ -28,10 +28,16 @@ router.get('/scrapepassing', (req, res) => {
         Passing.remove({}, () => {
             Passing.create(cleanStats).then(data => {
                 console.log(data);
-                res.json(data.data);
+                res.json(data);
             })
         });
     });
+})
+
+router.get('/getpassing', (req, res) => {
+    Passing.find({}).then(data => {
+        res.json(data);
+    })
 })
 
 module.exports = router;

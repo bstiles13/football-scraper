@@ -9,13 +9,13 @@ import { scrapePassing } from '../actions/scrapeAction';
 class Home extends React.Component {
 
     componentDidMount() {
-        axios.get('/scrapepassing');
+        this.props.scrapePassing();
     }
 
     render() {
         return (
             <div>
-                <StatsPassing scrape={this.props.scrapePassing}/>
+                <StatsPassing stats={this.props.stats}/>
             </div>
         )
     }
