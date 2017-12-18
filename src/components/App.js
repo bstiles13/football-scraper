@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
-import logo from '../logo.svg';
 import './App.css';
 import axios from 'axios';
 import Navbar from './Navbar';
@@ -31,10 +30,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
           <Navbar />
           <Route exact path="/" render={props => <Home stats={this.props.stats} />} />
           <Route path="/passing" render={props => <PassingComponent stats={this.props.stats.passing} />} />
