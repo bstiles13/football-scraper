@@ -4,7 +4,7 @@ const routes = require('./routes/routes.js');
 const mongoose = require('mongoose');
 
 const target = "football_db";
-const db = process.env.MONGOD_URI || 'mongodb://localhost/' + target;
+const db = process.env.MONGODB_URI || "mongodb://localhost/" + target;
 
 mongoose.connect(db, err => {
     if (err) {
