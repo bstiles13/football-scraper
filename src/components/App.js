@@ -5,6 +5,7 @@ import './App.css';
 import axios from 'axios';
 import PassingComponent from './PassingComponent';
 import RushingComponent from './RushingComponent';
+import ReceivingComponent from './ReceivingComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -31,6 +32,7 @@ class App extends Component {
           </header>
           <Route exact path="/" render={ props => <PassingComponent stats={this.props.stats.passing}/> } />
           <Route exact path="/rushing" render={ props => <RushingComponent stats={this.props.stats.rushing}/> } />
+          <Route exact path="/receiving" render={ props => <ReceivingComponent stats={this.props.stats.receiving}/> } />
         </div>
       </BrowserRouter>
     );
