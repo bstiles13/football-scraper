@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import logo from '../logo.svg';
 import './App.css';
 import axios from 'axios';
+import Navbar from './Navbar';
 import PassingComponent from './PassingComponent';
 import RushingComponent from './RushingComponent';
 import ReceivingComponent from './ReceivingComponent';
@@ -19,10 +20,10 @@ class App extends Component {
   componentDidMount() {
     this.props.scrapePassing();
     this.props.scrapeRushing();
-    this.props.scrapeReceiving();    
-    this.props.scrapeTackles();    
-    this.props.scrapeSacks();    
-    this.props.scrapeInterceptions()  
+    this.props.scrapeReceiving();
+    this.props.scrapeTackles();
+    this.props.scrapeSacks();
+    this.props.scrapeInterceptions()
   }
 
   render() {
@@ -33,12 +34,13 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Route exact path="/" render={ props => <PassingComponent stats={this.props.stats.passing}/> } />
-          <Route exact path="/rushing" render={ props => <RushingComponent stats={this.props.stats.rushing}/> } />
-          <Route exact path="/receiving" render={ props => <ReceivingComponent stats={this.props.stats.receiving}/> } />
-          <Route exact path="/tackles" render={ props => <TacklesComponent stats={this.props.stats.tackles}/> } />
-          <Route exact path="/sacks" render={ props => <SacksComponent stats={this.props.stats.sacks}/> } />
-          <Route exact path="/interceptions" render={ props => <InterceptionsComponent stats={this.props.stats.interceptions}/> } />
+          <Navbar />
+          <Route exact path="/" render={props => <PassingComponent stats={this.props.stats.passing} />} />
+          <Route exact path="/rushing" render={props => <RushingComponent stats={this.props.stats.rushing} />} />
+          <Route exact path="/receiving" render={props => <ReceivingComponent stats={this.props.stats.receiving} />} />
+          <Route exact path="/tackles" render={props => <TacklesComponent stats={this.props.stats.tackles} />} />
+          <Route exact path="/sacks" render={props => <SacksComponent stats={this.props.stats.sacks} />} />
+          <Route exact path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
         </div>
       </BrowserRouter>
     );
