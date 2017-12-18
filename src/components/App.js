@@ -7,6 +7,7 @@ import PassingComponent from './PassingComponent';
 import RushingComponent from './RushingComponent';
 import ReceivingComponent from './ReceivingComponent';
 import TacklesComponent from './TacklesComponent';
+import SacksComponent from './SacksComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path="/rushing" render={ props => <RushingComponent stats={this.props.stats.rushing}/> } />
           <Route exact path="/receiving" render={ props => <ReceivingComponent stats={this.props.stats.receiving}/> } />
           <Route exact path="/tackles" render={ props => <TacklesComponent stats={this.props.stats.tackles}/> } />
+          <Route exact path="/sacks" render={ props => <SacksComponent stats={this.props.stats.sacks}/> } />
         </div>
       </BrowserRouter>
     );

@@ -132,7 +132,7 @@ router.get('/scrapesacks', (req, res) => {
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
         })
-        cleanStats = stats.slice(1);
+        cleanStats = stats.slice(2);
         console.log(cleanStats);      
         res.json(cleanStats);  
     });
@@ -159,7 +159,7 @@ router.get('/scrapeinterceptions', (req, res) => {
             player.fumbles = parseInt($(this).children('td:nth-child(15)').text().trim());            
             stats.push(player);
         })
-        cleanStats = stats.slice(1);
+        cleanStats = stats.slice(2);
         console.log(cleanStats);      
         res.json(cleanStats);  
     });
