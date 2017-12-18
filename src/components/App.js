@@ -4,6 +4,7 @@ import logo from '../logo.svg';
 import './App.css';
 import axios from 'axios';
 import PassingComponent from './PassingComponent';
+import RushingComponent from './RushingComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -29,6 +30,7 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <Route exact path="/" render={ props => <PassingComponent stats={this.props.stats.passing}/> } />
+          <Route exact path="/rushing" render={ props => <RushingComponent stats={this.props.stats.rushing}/> } />
         </div>
       </BrowserRouter>
     );
