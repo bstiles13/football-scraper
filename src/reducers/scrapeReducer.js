@@ -1,4 +1,11 @@
-export default function (state = null, action) {
+export default function (state = {
+    passing: null,
+    rushing: null,
+    receiving: null,
+    tackles: null,
+    sacks: null,
+    interceptions: null
+}, action) {
     switch (action.type) {
         case 'SCRAPE':
             state = { ...state, ...action.payload }

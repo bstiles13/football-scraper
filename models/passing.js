@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 let passingSchema = mongoose.Schema({
     player: String,
+    team: String,
     completions: Number,
     attempts: Number,
     yards: Number,

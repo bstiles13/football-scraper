@@ -8,13 +8,14 @@ router.get('/scrapepassing', (req, res) => {
     let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=PASSING&season=2017&seasonType=REG";
     let stats = [];
 
-    request(baseUrl, function (error, response, html) {
+    request(baseUrl, function (err, response, html) {
 
         let $ = cheerio.load(html.toString());
         $('table tr').each(function (i, td) {
 
             let player = {};
             player.player = $(this).children('td:nth-child(2)').text().trim();
+            player.team = $(this).children('td:nth-child(3)').text().trim();            
             player.completions = parseInt($(this).children('td:nth-child(5)').text().trim());
             player.attempts = parseInt($(this).children('td:nth-child(6)').text().trim());            
             player.yards = parseFloat( $(this).children('td:nth-child(9)').text().trim().replace(/,/g,'') );

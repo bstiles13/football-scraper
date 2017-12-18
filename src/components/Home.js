@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import StatsPassing from './StatsPassing';
+import PassingComponent from './PassingComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,7 +15,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <StatsPassing stats={this.props.stats}/>
+                <PassingComponent stats={this.props.stats}/>
             </div>
         )
     }

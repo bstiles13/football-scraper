@@ -9,13 +9,13 @@ export default class PieChart extends React.Component {
 
     buildChart() {
         let that = this;
-        let dataset = this.props.stats.passing.sort(function(a, b) {
+        let dataset = this.props.stats.passing.sort(function (a, b) {
             return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
-        });;
+        });
         dataset = dataset.slice(0, 5);
 
-        let width = 180;
-        let height = 180;
+        let width = 210;
+        let height = 210;
         let radius = width / 2;
 
         let svg = d3.select('#chart-' + this.props.type)
@@ -54,29 +54,35 @@ export default class PieChart extends React.Component {
 
     buildLegend() {
         let that = this;
-        if (this.props.stats && this.props.type) {
-            let dataset = this.props.stats.passing.sort(function(a, b) {
-                return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
-            });;
-            dataset = dataset.slice(0, 5);
-            return dataset.map((item, index) => {
-                return (
-                    <div className='legend-row' key={index}>
-                        <div className='legend-item' style={{ backgroundColor: color(index), width: '10px', height: '10px' }}></div>
-                        <div>{item.player}</div>
-                    </div>
-                )
-            })
-        }
+        let dataset = this.props.stats.passing.sort(function (a, b) {
+            return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
+        });
+        dataset = dataset.slice(0, 5);
+        return dataset.map((item, index) => {
+            return (
+                <div className='legend-row' key={index}>
+                    <div className='legend-item' style={{ backgroundColor: color(index), width: '10px', height: '10px' }}></div>
+                    <div>{item.player}</div>
+                </div>
+            )
+        })
     }
 
     render() {
         return (
-            <div className='pie-chart'>
-                <div id={'chart-' + this.props.type} className='chart'></div>
-                <div className='legend'>
-                    {this.buildLegend(color)}
-                </div>
+            <div>
+                {
+                    this.props.stats.passing === null
+                        ? <img src='https://media.giphy.com/media/3o7aDczpCChShEG27S/giphy.gif' style={{ width: '200px', height: '200px'}}/>
+                        : (
+                            <div className='pie-chart'>
+                                <div id={'chart-' + this.props.type} className='chart'></div>
+                                <div className='legend'>
+                                    {this.buildLegend()}
+                                </div>
+                            </div>
+                        )
+                }
             </div>
         )
     }

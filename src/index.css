@@ -6,15 +6,19 @@ body {
 
 .charts-container {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .pie-chart {
   display: flex;
-  margin: 20px 0 0 10px;;
+  margin: 15px 0 0 10px;;
 }
 
 .legend {
-  margin: 40px 0 0 15px;
+  margin: 40px 0 0 30px;
+  min-width: 200px;
 }
 
 .legend-row {
