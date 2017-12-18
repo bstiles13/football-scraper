@@ -10,7 +10,7 @@ export default class PassingTable extends React.Component {
             });
             return passingStats.map((row, index) => {
                 return (
-                    <tr>
+                    <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <th>{row.player}</th>
                         <th>{row.team}</th>
@@ -26,7 +26,7 @@ export default class PassingTable extends React.Component {
 
     render() {
         return (
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

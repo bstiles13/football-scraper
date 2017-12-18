@@ -25,13 +25,14 @@ router.get('/scrapepassing', (req, res) => {
             stats.push(player);
         })
         cleanStats = stats.slice(1);
-        console.log(cleanStats);        
-        Passing.remove({}, () => {
-            Passing.create(cleanStats).then(data => {
-                console.log(data);
-                res.json(data);
-            })
-        });
+        console.log(cleanStats);      
+        res.json(cleanStats);  
+        // Passing.remove({}, () => {
+        //     Passing.create(cleanStats).then(data => {
+        //         console.log(data);
+        //         res.json(data);
+        //     })
+        // });
     });
 })
 
