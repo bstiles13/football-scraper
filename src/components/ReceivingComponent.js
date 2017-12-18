@@ -1,11 +1,12 @@
 import React from 'react';
 import PieChart from './PieChart';
+import ReceivingTable from './ReceivingTable';
 
 export default class ReceivingComponent extends React.Component {
     render() {
         return (
             <div>
-                <div className='charts-container'>
+                <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Yards</h5>
                         <PieChart stats={this.props.stats} type='yards' />
@@ -15,7 +16,7 @@ export default class ReceivingComponent extends React.Component {
                         <PieChart stats={this.props.stats} type='receptions' />
                     </div>
                 </div>
-                <div className='charts-container'>
+                <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Touchdowns</h5>
                         <PieChart stats={this.props.stats} type='touchdowns' />
@@ -25,6 +26,7 @@ export default class ReceivingComponent extends React.Component {
                         <PieChart stats={this.props.stats} type='fumbles' />
                     </div>
                 </div>
+                <ReceivingTable stats={this.props.stats} />
             </div>
         )
     }

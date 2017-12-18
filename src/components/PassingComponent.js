@@ -6,7 +6,7 @@ export default class PassingComponent extends React.Component {
     render() {
         return (
             <div>
-                <div className='charts-container'>
+                <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Yards</h5>
                         <PieChart stats={this.props.stats} type='yards' />
@@ -16,7 +16,7 @@ export default class PassingComponent extends React.Component {
                         <PieChart stats={this.props.stats} type='rating' />
                     </div>
                 </div>
-                <div className='charts-container'>
+                <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Touchdowns</h5>
                         <PieChart stats={this.props.stats} type='touchdowns' />

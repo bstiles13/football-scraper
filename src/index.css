@@ -4,11 +4,29 @@ body {
   font-family: sans-serif;
 }
 
-.charts-container {
+.defense-container {
+  display: flex;
+  padding: 30px;
+}
+
+.defense-container-charts {
+  flex: 1;
+}
+
+.defense-container-table {
+  flex: 2;
+}
+
+.horizontal-charts {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.vertical-charts {
+  display: flex;
+  flex-direction: column;
 }
 
 .pie-chart {
@@ -28,4 +46,33 @@ body {
 
 .legend-item {
   margin-right: 5px;
+}
+
+.custom-table {
+  flex: 2;
+}
+
+.custom-row {
+  display: flex;
+  border-bottom: 1px solid lightgray;  
+}
+
+.custom-header {
+  font-weight: bold;
+  border-top: 1px solid lightgray;    
+  border-bottom: 2px solid dimgray;
+}
+
+.custom-column {
+  padding: 5px 20px 5px 10px;
+  flex: 1;
+  text-align: left;
+}
+
+.custom-column-shorten {
+  flex: 1;
+}
+
+.custom-column-extended {
+  flex: 2;
 }
