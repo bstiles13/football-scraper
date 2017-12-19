@@ -12,12 +12,40 @@ body {
   display: flex;
 }
 
-.standings-child {
-  flex: 1;
+.standings-charts {
+  flex: 4;
+}
+
+.standings-table {
+  flex: 5;
+  margin: 0 30px;
 }
 
 #barchart {
   margin-bottom: 30px;
+}
+
+.standings-table {
+}
+
+.standings-row {
+  display: flex;
+}
+
+.standings-row-header {
+  font-weight: bold;
+  border-top: solid rgb(214, 214, 214) 1px;
+  border-bottom: solid rgb(214, 214, 214) 2px;
+}
+
+.standings-column {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;  
+}
+
+.standings-column-extended {
+  flex: 3;
 }
 
 .home-row {
