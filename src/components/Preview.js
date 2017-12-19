@@ -30,7 +30,7 @@ export default class Preview extends React.Component {
                     <Link to={'/' + this.props.category} style={{color: 'white'}}>Complete List</Link>
                 </div>
                 <div className='preview-content'>
-                    <img src={images[this.props.category]} className='preview-image' style={{width: '110px', height: '110px'}}/>
+                    <img src={images[this.props.category]} className='preview-image' style={{width: '120px', height: '110px'}}/>
                     <div className='preview-list'>
                         {this.renderRows()}
                     </div>

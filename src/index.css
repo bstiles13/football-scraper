@@ -8,6 +8,18 @@ body {
   padding-top: 30px;
 }
 
+#standings {
+  display: flex;
+}
+
+.standings-child {
+  flex: 1;
+}
+
+#barchart {
+  margin-bottom: 30px;
+}
+
 .home-row {
   display: flex;
 }
