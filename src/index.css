@@ -8,6 +8,35 @@ body {
   padding-top: 30px;
 }
 
+.header {
+  text-align: left;
+  margin: 0 20px 20px 20px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-border-one, .header-border-two, .header-border-three {
+  border-bottom: 2px solid rgb(157, 193, 214);
+  margin-bottom: 2px;  
+  margin-left: auto;
+  width: 90%;
+}
+
+.header-border-one {
+  width: 100%;
+}
+
+.header-border-two {
+  width: 95%;
+}
+
+.header-border-three {
+  width: 90%;
+}
+
 #standings {
   display: flex;
 }
