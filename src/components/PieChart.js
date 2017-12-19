@@ -66,7 +66,7 @@ export default class PieChart extends React.Component {
             return (
                 <div className='legend-row' key={index}>
                     <div className='legend-item' style={{ backgroundColor: color(index), width: '10px', height: '10px' }}></div>
-                    <div>{item.player}</div>
+                    <div>{item.player ? item.player : item.team}</div>
                 </div>
             )
         })

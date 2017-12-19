@@ -11,6 +11,7 @@ import ReceivingComponent from './ReceivingComponent';
 import TacklesComponent from './TacklesComponent';
 import SacksComponent from './SacksComponent';
 import InterceptionsComponent from './InterceptionsComponent';
+import TeamOffenseTotal from './TeamOffenseTotal';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -51,6 +52,7 @@ class App extends Component {
           <Route path="/tackles" render={props => <TacklesComponent stats={this.props.stats.tackles} />} />
           <Route path="/sacks" render={props => <SacksComponent stats={this.props.stats.sacks} />} />
           <Route path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
+          <Route path="/offensetotal" render={props => <TeamOffenseTotal stats={this.props.stats.offenseTotal} />} />
         </div>
       </BrowserRouter>
     );
