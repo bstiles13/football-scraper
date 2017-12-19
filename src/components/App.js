@@ -13,11 +13,15 @@ import InterceptionsComponent from './InterceptionsComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions } from '../actions/scrapeAction';
+import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions } from '../actions/scrapeAction';
+
+const request = require('request');
+const cheerio = require('cheerio');
 
 class App extends Component {
 
   componentDidMount() {
+    this.props.scrapeStandings()        
     this.props.scrapePassing();
     this.props.scrapeRushing();
     this.props.scrapeReceiving();
@@ -52,6 +56,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
+    scrapeStandings: scrapeStandings,
     scrapePassing: scrapePassing,
     scrapeRushing: scrapeRushing,
     scrapeReceiving: scrapeReceiving,

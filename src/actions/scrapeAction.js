@@ -77,3 +77,16 @@ export const scrapeInterceptions = () => {
         });
     }
 }
+
+export const scrapeStandings = () => {
+    return function (dispatch) {
+        axios.get('/scrapestandings').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    standings: data.data
+                }
+            })
+        })
+    }
+}
