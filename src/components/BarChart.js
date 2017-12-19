@@ -19,7 +19,6 @@ export default class BarChart extends React.Component {
         let label = '';
         let standings = this.props.stats;
         if (this.props.sort == 'top') {
-            console.log('ascending');
             backgroundColor = 'rgba(54, 162, 235, 0.2)';
             borderColor = 'rgba(54, 162, 235, 1)';
             label = 'Top Wins'
@@ -28,7 +27,6 @@ export default class BarChart extends React.Component {
             })
         }
         if (this.props.sort == 'bottom') {
-            console.log('descending');
             backgroundColor = 'rgba(255, 99, 132, 0.2)';
             borderColor = 'rgba(255, 99, 132, 1)';
             label = 'Top Losses'
@@ -40,7 +38,7 @@ export default class BarChart extends React.Component {
         let labels = standings.map(team => {
             return team.team;
         });
-        console.log(labels);
+        // console.log(labels);
         let wins = standings.map(team => {
             return team.wins;
         });

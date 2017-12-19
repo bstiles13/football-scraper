@@ -90,3 +90,82 @@ export const scrapeStandings = () => {
         })
     }
 }
+
+export const scrapeOffenseTotal = () => {
+    return function (dispatch) {
+        axios.get('/scrapeoffensetotal').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    offenseTotal: data.data
+                }
+            })
+        })
+    }
+}
+
+export const scrapeOffensePassing = () => {
+    return function (dispatch) {
+        axios.get('/scrapeoffensepassing').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    offensePassingg: data.data
+                }
+            })
+        })
+    }
+}
+
+export const scrapeOffenseRushing = () => {
+    return function (dispatch) {
+        axios.get('/scrapeoffenserushing').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    offenseRushing: data.data
+                }
+            })
+        })
+    }
+}
+
+export const scrapeOffenseReceiving = () => {
+    console.log('doing');
+    return function (dispatch) {
+        axios.get('/scrapeoffensereceiving').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    offenseReceiving: data.data
+                }
+            })
+        })
+    }
+}
+
+export const scrapeDefenseTotal = () => {
+    return function (dispatch) {
+        axios.get('/scrapedefensetotal').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    defenseTotal: data.data
+                }
+            })
+        })
+    }
+}
+
+export const scrapeDefenseDetail = () => {
+    return function (dispatch) {
+        axios.get('/scrapedefensedetail').then(data => {
+            dispatch({
+                type: 'SCRAPE',
+                payload: {
+                    defenseDetail: data.data
+                }
+            })
+        })
+    }
+}

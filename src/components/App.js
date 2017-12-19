@@ -14,7 +14,7 @@ import InterceptionsComponent from './InterceptionsComponent';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions } from '../actions/scrapeAction';
+import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions, scrapeOffenseTotal, scrapeOffensePassing, scrapeOffenseRushing, scrapeOffenseReceiving, scrapeDefenseTotal, scrapeDefenseDetail } from '../actions/scrapeAction';
 import { toggleStandings } from '../actions/toggleAction';
 
 const request = require('request');
@@ -29,7 +29,13 @@ class App extends Component {
     this.props.scrapeReceiving();
     this.props.scrapeTackles();
     this.props.scrapeSacks();
-    this.props.scrapeInterceptions()
+    this.props.scrapeInterceptions();
+    this.props.scrapeOffenseTotal();
+    this.props.scrapeOffensePassing();
+    this.props.scrapeOffenseRushing();
+    this.props.scrapeOffenseReceiving();
+    this.props.scrapeDefenseTotal();
+    this.props.scrapeDefenseDetail(); 
   }
 
   render() {
@@ -67,6 +73,12 @@ function matchDispatchToProps(dispatch) {
     scrapeTackles: scrapeTackles,
     scrapeSacks: scrapeSacks,
     scrapeInterceptions: scrapeInterceptions,
+    scrapeOffenseTotal: scrapeOffenseTotal,
+    scrapeOffensePassing: scrapeOffensePassing,
+    scrapeOffenseRushing: scrapeOffenseRushing,
+    scrapeOffenseReceiving: scrapeOffenseReceiving,
+    scrapeDefenseTotal: scrapeDefenseTotal,
+    scrapeDefenseDetail: scrapeDefenseDetail,
     toggleStandings: toggleStandings
   }, dispatch)
 }

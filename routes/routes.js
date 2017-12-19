@@ -199,9 +199,183 @@ router.get('/scrapestandings', (req, res) => {
             team.streak = $(row).children('td:nth-child(13)').text();
             standings.push(team);
         });
-        console.log(standings);
-        res.json(standings);        
+        res.json(standings);
     })
+})
+
+router.get('/scrapeoffensetotal', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.yards = parseInt($(row).children('td:nth-child(3)').text().replace(/,/g, ''));
+            team.averageTotal = parseInt($(row).children('td:nth-child(4)').text());
+            team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
+            team.averagePass = parseInt($(row).children('td:nth-child(6)').text());            
+            team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
+            team.averageRush = parseInt($(row).children('td:nth-child(8)').text());            
+            team.points = parseInt($(row).children('td:nth-child(9)').text());
+            team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
+            stats.push(team);
+        })
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapeoffensepassing', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/passing/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.yards = parseInt($(row).children('td:nth-child(6)').text().replace(/,/g, ''));
+            team.touchdowns = parseInt($(row).children('td:nth-child(9)').text());
+            team.interceptions = parseInt($(row).children('td:nth-child(10)').text());
+            team.sacks = parseInt($(row).children('td:nth-child(11)').text());
+            team.rating = parseInt($(row).children('td:nth-child(13)').text());
+            team.yardsPerGame = parseInt($(row).children('td:nth-child(14)').text());            
+            stats.push(team);
+        })
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapeoffenserushing', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/rushing/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.attempts = parseInt($(row).children('td:nth-child(3)').text());            
+            team.yards = parseInt($(row).children('td:nth-child(4)').text().replace(/,/g, ''));
+            team.averagePerAttempt = parseInt($(row).children('td:nth-child(5)').text());                        
+            team.touchdowns = parseInt($(row).children('td:nth-child(7)').text());
+            team.averagePerGame = parseInt($(row).children('td:nth-child(8)').text());                                    
+            team.fumbles = parseInt($(row).children('td:nth-child(9)').text());
+            team.lost = parseInt($(row).children('td:nth-child(10)').text());         
+            stats.push(team);
+        })
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapeoffensereceiving', (req, res) => {
+    console.log('receiving');
+    
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/receiving/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.receptions = parseInt($(row).children('td:nth-child(3)').text());            
+            team.yards = parseInt($(row).children('td:nth-child(4)').text().replace(/,/g, ''));
+            team.averagePerReception = parseInt($(row).children('td:nth-child(5)').text());                        
+            team.touchdowns = parseInt($(row).children('td:nth-child(7)').text());
+            team.averagePerGame = parseInt($(row).children('td:nth-child(8)').text());                                    
+            team.fumbles = parseInt($(row).children('td:nth-child(9)').text());
+            team.lost = parseInt($(row).children('td:nth-child(10)').text());         
+            stats.push(team);
+        })
+        console.log('receiving');
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapedefensetotal', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.yards = parseInt($(row).children('td:nth-child(3)').text().replace(/,/g, ''));
+            team.yardsPerGame = parseInt($(row).children('td:nth-child(4)').text());
+            team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
+            team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
+            team.points = parseInt($(row).children('td:nth-child(9)').text());
+            team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
+            stats.push(team);
+        })
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapedefensetotal', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.yards = parseInt($(row).children('td:nth-child(3)').text().replace(/,/g, ''));
+            team.yardsPerGame = parseInt($(row).children('td:nth-child(4)').text());
+            team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
+            team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
+            team.points = parseInt($(row).children('td:nth-child(9)').text());
+            team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
+            stats.push(team);
+        })
+        stats = stats.slice(1);
+        res.json(stats);
+    });
+})
+
+router.get('/scrapedefensedetail', (req, res) => {
+    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/defense/position/defense/year/2017";
+    let stats = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html.toString());
+        $('table tr').each(function (i, row) {
+
+            let team = {};
+            team.team = $(row).children('td:nth-child(2)').children('a').text();
+            team.tackles = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
+            team.sacks = parseInt($(row).children('td:nth-child(6)').text());
+            team.interceptions = parseInt($(row).children('td:nth-child(9)').text());
+            team.interceptionTouchdowns = parseInt($(row).children('td:nth-child(12)').text());
+            team.fumbles = parseInt($(row).children('td:nth-child(14)').text());
+            team.fumblesTouchdowns = parseInt($(row).children('td:nth-child(15)').text());
+            stats.push(team);
+        })
+        stats = stats.slice(2);
+        res.json(stats);
+    });
 })
 
 // router.get('/getpassing', (req, res) => {
