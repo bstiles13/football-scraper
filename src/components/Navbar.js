@@ -8,11 +8,11 @@ export default class Navbar extends React.Component {
             <div>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title"><Link to={'/'} style={{color: 'white'}}>NFL Stat Tracker</Link></h1>
+                    <h1 className="App-title"><Link to={'/'} style={{ color: 'white' }}>NFL Stat Tracker</Link></h1>
                 </header>
                 <ul className="nav nav-tabs">
                     <li className="nav-item">
-                        <span className="nav-link disabled" href="#">Player Stats</span>
+                        <Link to={'/playerstats'} style={{ color: 'gray' }} className='nav-link'>Player Stats</Link>
                     </li>
                     <li className="nav-item">
                         <Link to={'/passing'} className='nav-link'>Passing</Link>
@@ -33,7 +33,7 @@ export default class Navbar extends React.Component {
                         <Link to={'/interceptions'} className='nav-link'>Interceptions</Link>
                     </li>
                     <li className="nav-item">
-                        <span className="nav-link disabled" href="#">Team Stats</span>
+                        <Link to={'/teamstats'} style={{ color: 'gray' }} className='nav-link'>Team Stats</Link>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/interceptions">Offense</a>

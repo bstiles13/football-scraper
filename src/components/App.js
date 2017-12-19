@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Home from './Home';
+import PlayerStats from './PlayerStats';
 import PassingComponent from './PassingComponent';
 import RushingComponent from './RushingComponent';
 import ReceivingComponent from './ReceivingComponent';
@@ -37,6 +38,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Route exact path="/" render={props => <Home stats={this.props.stats} toggles={this.props.toggles} toggleStandings={this.props.toggleStandings} />} />
+          <Route path="/playerstats" render={props => <PlayerStats stats={this.props.stats} />} />
           <Route path="/passing" render={props => <PassingComponent stats={this.props.stats.passing} />} />
           <Route path="/rushing" render={props => <RushingComponent stats={this.props.stats.rushing} />} />
           <Route path="/receiving" render={props => <ReceivingComponent stats={this.props.stats.receiving} />} />
