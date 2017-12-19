@@ -12,7 +12,7 @@ export default class Preview extends React.Component {
             })
             return stats.map((row, i) => {
                 return (
-                    <div className='preview-row' key={i}>
+                    <div className='preview-row' key={i} style={ i == 0 ? {backgroundColor: '#d6e6ff' } : {} }>
                         <div className='preview-column'>{row.player}</div>
                         <div className='preview-column'>{row.team}</div>
                         <div className='preview-column'>{row[this.props.preview]}</div>
@@ -30,7 +30,7 @@ export default class Preview extends React.Component {
                     <Link to={'/' + this.props.category} style={{color: 'white'}}>Complete List</Link>
                 </div>
                 <div className='preview-content'>
-                    <img src={images[this.props.category]} className='preview-image' style={{width: '150px', height: '150px'}}/>
+                    <img src={images[this.props.category]} className='preview-image' style={{width: '110px', height: '110px'}}/>
                     <div className='preview-list'>
                         {this.renderRows()}
                     </div>
