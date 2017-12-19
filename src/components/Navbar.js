@@ -42,7 +42,7 @@ export default class Navbar extends React.Component {
                         <Link to={'/offensetotal'} className='nav-link'>Offense</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/interceptions">Defense</a>
+                        <Link to={'/defensetotal'} className='nav-link'>Defense</Link>
                     </li>
                 </ul>
             </div>

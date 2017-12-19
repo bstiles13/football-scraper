@@ -318,9 +318,11 @@ router.get('/scrapedefensetotal', (req, res) => {
             let team = {};
             team.team = $(row).children('td:nth-child(2)').children('a').text();
             team.yards = parseInt($(row).children('td:nth-child(3)').text().replace(/,/g, ''));
-            team.yardsPerGame = parseInt($(row).children('td:nth-child(4)').text());
+            team.averageTotal = parseInt($(row).children('td:nth-child(4)').text());
             team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
+            team.averagePass = parseInt($(row).children('td:nth-child(6)').text());            
             team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
+            team.averageRush = parseInt($(row).children('td:nth-child(4)').text());            
             team.points = parseInt($(row).children('td:nth-child(9)').text());
             team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
             stats.push(team);
