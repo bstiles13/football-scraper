@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import PieChart from './PieChart';
 import ReceivingTable from './ReceivingTable';
 
@@ -6,6 +7,7 @@ export default class ReceivingComponent extends React.Component {
     render() {
         return (
             <div>
+                <Header title='Receiving Statistics' />
                 <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Yards</h5>

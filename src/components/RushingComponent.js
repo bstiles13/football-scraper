@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import PieChart from './PieChart';
 import RushingTable from './RushingTable';
 
@@ -6,6 +7,7 @@ export default class RushingComponent extends React.Component {
     render() {
         return (
             <div>
+                <Header title='Rushing Statistics' />
                 <div className='horizontal-charts'>
                     <div className='charts-child'>
                         <h5>Yards</h5>

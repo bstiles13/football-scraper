@@ -1,10 +1,12 @@
 import React from 'react';
+import Header from './Header';
 import Preview from './Preview';
 
 export default class PlayerStats extends React.Component {
     render() {
         return (
             <div>
+                <Header title='League Leaders' />
                 <div className='home-row'>
                     <Preview stats={this.props.stats.passing} category='passing' preview='yards' />
                     <Preview stats={this.props.stats.tackles} category='tackles' preview='tackles' />

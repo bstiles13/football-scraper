@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import PieChart from './PieChart';
 import TacklesTable from './TacklesTable';
 
@@ -6,6 +7,7 @@ export default class TacklesComponent extends React.Component {
     render() {
         return (
             <div>
+                <Header title='Tackling Statistics' />
                 <div className='defense-container'>
                     <div className='vertical-charts defense-container-charts'>
                         <div className='charts-child'>

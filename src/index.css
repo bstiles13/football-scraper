@@ -4,13 +4,9 @@ body {
   font-family: sans-serif;
 }
 
-#home {
-  padding-top: 30px;
-}
-
 .header {
   text-align: left;
-  margin: 0 20px 20px 20px;
+  margin: 20px;
 }
 
 .header-top {

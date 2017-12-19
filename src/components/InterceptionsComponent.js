@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import PieChart from './PieChart';
 import InterceptionsTable from './InterceptionsTable';
 
@@ -6,6 +7,7 @@ export default class InterceptionsComponent extends React.Component {
     render() {
         return (
             <div>
+                <Header title='Interception Statistics' />
                 <div className='defense-container'>
                     <div className='vertical-charts'>
                         <div className='charts-child'>
