@@ -13,7 +13,7 @@ export default class BarChart extends React.Component {
                 console.log('ascending');
                 backgroundColor = 'rgba(54, 162, 235, 0.2)';
                 borderColor = 'rgba(54, 162, 235, 1)';
-                label = 'Top 10: Wins'
+                label = 'Top Wins'
                 standings.sort((a, b) => {
                     return b.wins - a.wins;
                 })
@@ -22,7 +22,7 @@ export default class BarChart extends React.Component {
                 console.log('descending');                
                 backgroundColor = 'rgba(255, 99, 132, 0.2)';
                 borderColor = 'rgba(255, 99, 132, 1)';
-                label = 'Top 10: Losses'                
+                label = 'Top Losses'                
                 standings.sort((a, b) => {
                     return a.wins - b.wins;
                 })
