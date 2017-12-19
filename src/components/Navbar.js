@@ -12,6 +12,9 @@ export default class Navbar extends React.Component {
                 </header>
                 <ul className="nav nav-tabs">
                     <li className="nav-item">
+                        <Link to={'/'} style={{ color: 'gray' }} className='nav-link'>Overview</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link to={'/playerstats'} style={{ color: 'gray' }} className='nav-link'>Player Stats</Link>
                     </li>
                     <li className="nav-item">

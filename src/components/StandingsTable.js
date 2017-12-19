@@ -12,29 +12,29 @@ export default class StandingsTable extends React.Component {
                 case 'division':
                     return (
                         <div>
-                            {this.renderSplitView(standings, 'division', 'AFC East')}
-                            {this.renderSplitView(standings, 'division', 'AFC North')}
-                            {this.renderSplitView(standings, 'division', 'AFC South')}
-                            {this.renderSplitView(standings, 'division', 'AFC West')}
-                            {this.renderSplitView(standings, 'division', 'NFC East')}
-                            {this.renderSplitView(standings, 'division', 'NFC North')}
-                            {this.renderSplitView(standings, 'division', 'NFC South')}
-                            {this.renderSplitView(standings, 'division', 'NFC West')}
+                            {this.buildView(standings, 'division', 'AFC East')}
+                            {this.buildView(standings, 'division', 'AFC North')}
+                            {this.buildView(standings, 'division', 'AFC South')}
+                            {this.buildView(standings, 'division', 'AFC West')}
+                            {this.buildView(standings, 'division', 'NFC East')}
+                            {this.buildView(standings, 'division', 'NFC North')}
+                            {this.buildView(standings, 'division', 'NFC South')}
+                            {this.buildView(standings, 'division', 'NFC West')}
                         </div>
                     )
                     break;
                 case 'conference':
                     return (
                         <div>
-                            {this.renderSplitView(standings, 'conference', 'AFC')}
-                            {this.renderSplitView(standings, 'conference', 'NFC')}
+                            {this.buildView(standings, 'conference', 'AFC')}
+                            {this.buildView(standings, 'conference', 'NFC')}
                         </div>
                     )
                     break;
                 case 'league':
                     return (
                         <div>
-                            {this.renderSplitView(standings, 'league', 'League')}
+                            {this.buildView(standings, 'league', 'League')}
                         </div>
                     )
                     break;
@@ -42,7 +42,7 @@ export default class StandingsTable extends React.Component {
         }
     }
 
-    renderSplitView(standings, type, split) {
+    buildView(standings, type, split) {
         let teams = standings.map((team, i) => {
             if (type == 'league' || team[type] == split) {
                 return (
@@ -85,7 +85,15 @@ export default class StandingsTable extends React.Component {
     render() {
         return (
             <div id='standings-table'>
-                {this.renderStandings()}
+                {this.props.stats
+                    ? (
+                        <div>
+                            <h6 style={{ fontSize: '12px' }}>Standings</h6>
+                            {this.renderStandings()}
+                        </div>
+                    )
+                    : false
+                }
             </div>
         )
     }

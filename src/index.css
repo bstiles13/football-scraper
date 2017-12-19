@@ -190,3 +190,9 @@ body {
 .custom-column-extended {
   flex: 2;
 }
+
+/* Utilities */
+
+.btn {
+  margin-right: 5px;
+}
