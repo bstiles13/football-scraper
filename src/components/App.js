@@ -14,6 +14,7 @@ import InterceptionsComponent from './InterceptionsComponent';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions } from '../actions/scrapeAction';
+import { toggleStandings } from '../actions/toggleAction';
 
 const request = require('request');
 const cheerio = require('cheerio');
@@ -35,7 +36,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
-          <Route exact path="/" render={props => <Home stats={this.props.stats} />} />
+          <Route exact path="/" render={props => <Home stats={this.props.stats} toggles={this.props.toggles} toggleStandings={this.props.toggleStandings} />} />
           <Route path="/passing" render={props => <PassingComponent stats={this.props.stats.passing} />} />
           <Route path="/rushing" render={props => <RushingComponent stats={this.props.stats.rushing} />} />
           <Route path="/receiving" render={props => <ReceivingComponent stats={this.props.stats.receiving} />} />
@@ -50,7 +51,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    stats: state.stats
+    stats: state.stats,
+    toggles: state.toggles
   }
 }
 
@@ -62,7 +64,8 @@ function matchDispatchToProps(dispatch) {
     scrapeReceiving: scrapeReceiving,
     scrapeTackles: scrapeTackles,
     scrapeSacks: scrapeSacks,
-    scrapeInterceptions: scrapeInterceptions
+    scrapeInterceptions: scrapeInterceptions,
+    toggleStandings: toggleStandings
   }, dispatch)
 }
 

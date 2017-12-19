@@ -180,7 +180,12 @@ router.get('/scrapestandings', (req, res) => {
             if (i >= 16 && i < 20) { team.division = 'NFC East' };
             if (i >= 20 && i < 24) { team.division = 'NFC North' };
             if (i >= 24 && i < 28) { team.division = 'NFC South' };
-            if (i >= 28 && i < 32) { team.division = 'NFC West' };            
+            if (i >= 28 && i < 32) { team.division = 'NFC West' };
+            if (i < 16) {
+                team.conference = 'AFC';
+            } else {
+                team.conference = 'NFC';
+            }
             team.team = $(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').text() != '' ? $(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').children('span').text() : $(row).children('td:nth-child(1)').children('a:nth-child(3)').children('span').children('span').text();
             team.wins = $(row).children('td:nth-child(2)').text();
             team.losses = $(row).children('td:nth-child(3)').text();

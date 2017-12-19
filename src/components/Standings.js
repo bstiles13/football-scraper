@@ -11,7 +11,7 @@ export default class Home extends React.Component {
                     <BarChart stats={this.props.stats} sort='bottom' />
                 </div>
                 <div className='standings-table'>
-                    <StandingsTable stats={this.props.stats} />
+                    <StandingsTable stats={this.props.stats} toggles={this.props.toggles} />
                 </div>
             </div>
         )
