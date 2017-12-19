@@ -11,6 +11,7 @@ import ReceivingComponent from './ReceivingComponent';
 import TacklesComponent from './TacklesComponent';
 import SacksComponent from './SacksComponent';
 import InterceptionsComponent from './InterceptionsComponent';
+import TeamStats from './TeamStats';
 import TeamOffenseTotal from './TeamOffenseTotal';
 import TeamDefenseTotal from './TeamDefenseTotal';
 
@@ -53,6 +54,7 @@ class App extends Component {
           <Route path="/tackles" render={props => <TacklesComponent stats={this.props.stats.tackles} />} />
           <Route path="/sacks" render={props => <SacksComponent stats={this.props.stats.sacks} />} />
           <Route path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
+          <Route path="/teamstats" render={props => <TeamStats stats={this.props.stats} />} />
           <Route path="/offensetotal" render={props => <TeamOffenseTotal stats={this.props.stats.offenseTotal} />} />
           <Route path="/defensetotal" render={props => <TeamDefenseTotal stats={this.props.stats.defenseTotal} />} />
         </div>

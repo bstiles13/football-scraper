@@ -13,7 +13,7 @@ export default class Preview extends React.Component {
             return stats.map((row, i) => {
                 return (
                     <div className='preview-row' key={i} style={ i == 0 ? {backgroundColor: '#d6e6ff' } : {} }>
-                        <div className='preview-column'>{row.player}</div>
+                        <div className='preview-column'>{row.player ? row.player : (i + 1) + '.'}</div>
                         <div className='preview-column'>{row.team}</div>
                         <div className='preview-column'>{row[this.props.preview]}</div>
                     </div>
