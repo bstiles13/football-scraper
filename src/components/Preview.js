@@ -6,10 +6,10 @@ export default class Preview extends React.Component {
     renderRows() {
         let stats = this.props.stats;
         if (stats) {
-            stats = stats.slice(0, 5);
             stats = stats.sort((a, b) => {
                 return parseFloat(b[this.props.preview]) - parseFloat(a[this.props.preview]);
             })
+            stats = stats.slice(0, 5);            
             return stats.map((row, i) => {
                 return (
                     <div className='preview-row' key={i} style={ i == 0 ? {backgroundColor: '#d6e6ff' } : {} }>
