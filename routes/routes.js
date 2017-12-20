@@ -4,6 +4,53 @@ const request = require('request');
 const cheerio = require('cheerio');
 const Passing = require('../models/passing.js');
 
+router.get('/scrapestandings/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/standings/_/season/' + year;
+    let standings = [];
+
+    request(baseUrl, function (err, response, html) {
+
+        let $ = cheerio.load(html);
+        $('.standings-row').each((i, row) => {
+
+            let team = {}
+            if (i < 4) { team.division = 'AFC East' };
+            if (i >= 4 && i < 8) { team.division = 'AFC North' };
+            if (i >= 8 && i < 12) { team.division = 'AFC South' };
+            if (i >= 12 && i < 16) { team.division = 'AFC West' };
+            if (i >= 16 && i < 20) { team.division = 'NFC East' };
+            if (i >= 20 && i < 24) { team.division = 'NFC North' };
+            if (i >= 24 && i < 28) { team.division = 'NFC South' };
+            if (i >= 28 && i < 32) { team.division = 'NFC West' };
+            if (i < 16) {
+                team.conference = 'AFC';
+            } else {
+                team.conference = 'NFC';
+            }
+            if ($(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').text() != '') {
+                team.team = $(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').children('span').text();
+            } else if ($(row).children('td:nth-child(1)').children('a:nth-child(3)').children('span').children('span').text() != '') {
+                team.team = $(row).children('td:nth-child(1)').children('a:nth-child(3)').children('span').children('span').text();
+            } else {
+                team.team = $(row).children('td:nth-child(1)').children('span:nth-child(2)').children('span').text();
+            }
+            team.wins = $(row).children('td:nth-child(2)').text();
+            team.losses = $(row).children('td:nth-child(3)').text();
+            team.ties = $(row).children('td:nth-child(4)').text();
+            team.homeWins = $(row).children('td:nth-child(6)').text();
+            team.roadWins = $(row).children('td:nth-child(7)').text();
+            team.divisionWins = $(row).children('td:nth-child(8)').text();
+            team.conferenceWins = $(row).children('td:nth-child(9)').text();
+            team.pointsFor = $(row).children('td:nth-child(10)').text();
+            team.pointsAgainst = $(row).children('td:nth-child(11)').text();
+            team.streak = $(row).children('td:nth-child(13)').text();
+            standings.push(team);
+        });
+        res.json(standings);
+    })
+})
+
 router.get('/scrapepassing/:year', (req, res) => {
     let year = req.params.year;
     let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=PASSING&season=' + year + '&seasonType=REG';
@@ -167,47 +214,6 @@ router.get('/scrapeinterceptions/:year', (req, res) => {
         cleanStats = stats.slice(2);
         res.json(cleanStats);
     });
-})
-
-router.get('/scrapestandings/:year', (req, res) => {
-    let year = req.params.year;    
-    let baseUrl = 'http://www.espn.com/nfl/standings/_/season/' + year;
-    let standings = [];
-
-    request(baseUrl, function (err, response, html) {
-
-        let $ = cheerio.load(html);
-        $('.standings-row').each((i, row) => {
-
-            let team = {}
-            if (i < 4) { team.division = 'AFC East' };
-            if (i >= 4 && i < 8) { team.division = 'AFC North' };
-            if (i >= 8 && i < 12) { team.division = 'AFC South' };
-            if (i >= 12 && i < 16) { team.division = 'AFC West' };
-            if (i >= 16 && i < 20) { team.division = 'NFC East' };
-            if (i >= 20 && i < 24) { team.division = 'NFC North' };
-            if (i >= 24 && i < 28) { team.division = 'NFC South' };
-            if (i >= 28 && i < 32) { team.division = 'NFC West' };
-            if (i < 16) {
-                team.conference = 'AFC';
-            } else {
-                team.conference = 'NFC';
-            }
-            team.team = $(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').text() != '' ? $(row).children('td:nth-child(1)').children('a:nth-child(2)').children('span').children('span').text() : $(row).children('td:nth-child(1)').children('a:nth-child(3)').children('span').children('span').text();
-            team.wins = $(row).children('td:nth-child(2)').text();
-            team.losses = $(row).children('td:nth-child(3)').text();
-            team.ties = $(row).children('td:nth-child(4)').text();
-            team.homeWins = $(row).children('td:nth-child(6)').text();
-            team.roadWins = $(row).children('td:nth-child(7)').text();
-            team.divisionWins = $(row).children('td:nth-child(8)').text();
-            team.conferenceWins = $(row).children('td:nth-child(9)').text();
-            team.pointsFor = $(row).children('td:nth-child(10)').text();
-            team.pointsAgainst = $(row).children('td:nth-child(11)').text();
-            team.streak = $(row).children('td:nth-child(13)').text();
-            standings.push(team);
-        });
-        res.json(standings);
-    })
 })
 
 router.get('/scrapeoffensetotal/:year', (req, res) => {
