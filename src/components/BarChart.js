@@ -61,6 +61,7 @@ export default class BarChart extends React.Component {
                 scales: {
                     yAxes: [{
                         ticks: {
+                            suggestedMax: 16,
                             beginAtZero: true
                         }
                     }],

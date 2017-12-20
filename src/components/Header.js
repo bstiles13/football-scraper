@@ -10,7 +10,7 @@ class Header extends React.Component {
         return (
             <div className='header'>
                 <div className='header-top'>
-                    <h3>{this.props.title} - {this.props.toggleYear}</h3>
+                    <h3 className='header-text'>{this.props.title} - {this.props.toggleYear}</h3>
                     <SelectYear />
                 </div>
                 <div className='header-border-one'></div>

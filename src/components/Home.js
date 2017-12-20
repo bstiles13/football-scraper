@@ -13,7 +13,7 @@ export default class Home extends React.Component {
             <div id='home'>
                 <div className='header'>
                     <div className='header-top'>
-                        <h3>NFL Overview - {this.props.toggles.toggleYear}</h3>
+                        <h3 className='header-text'>NFL Overview - {this.props.toggles.toggleYear}</h3>
                         <div className='header-buttons'>
                             <button type="button" className="btn btn-sm btn-outline-primary" value='division' onClick={this.handleClick.bind(this)}>Division</button>
                             <button type="button" className="btn btn-sm btn-outline-primary" value='conference' onClick={this.handleClick.bind(this)}>Conference</button>
