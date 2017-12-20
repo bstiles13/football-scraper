@@ -42,6 +42,8 @@ export default class BarChart extends React.Component {
         let wins = standings.map(team => {
             return team.wins;
         });
+        document.getElementById('barchart-' + this.props.sort).width = 400;
+        document.getElementById('barchart-' + this.props.sort).height = 400;
         var ctx = document.getElementById('barchart-' + this.props.sort).getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -68,14 +70,15 @@ export default class BarChart extends React.Component {
                         }
                     }],
                 },
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                // responsive: false
             }
         });
     }
 
     render() {
         return (
-            <div>
+            <div id='barchart-container'>
                 <canvas id={'barchart-' + this.props.sort} style={{ width: '400px', height: '400px' }}></canvas>
             </div>
         )

@@ -4,8 +4,9 @@ const request = require('request');
 const cheerio = require('cheerio');
 const Passing = require('../models/passing.js');
 
-router.get('/scrapepassing', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=PASSING&season=2017&seasonType=REG";
+router.get('/scrapepassing/:year', (req, res) => {
+    let year = req.params.year;
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=PASSING&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -35,8 +36,9 @@ router.get('/scrapepassing', (req, res) => {
     });
 })
 
-router.get('/scraperushing', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=RUSHING&season=2017&seasonType=REG";
+router.get('/scraperushing/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=RUSHING&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -58,8 +60,9 @@ router.get('/scraperushing', (req, res) => {
     });
 })
 
-router.get('/scrapereceiving', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=RECEIVING&season=2017&seasonType=REG";
+router.get('/scrapereceiving/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=RECEIVING&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -81,8 +84,9 @@ router.get('/scrapereceiving', (req, res) => {
     });
 })
 
-router.get('/scrapetackles', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=TACKLES&season=2017&seasonType=REG";
+router.get('/scrapetackles/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=TACKLES&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -108,8 +112,9 @@ router.get('/scrapetackles', (req, res) => {
     });
 })
 
-router.get('/scrapesacks', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=SACKS&season=2017&seasonType=REG";
+router.get('/scrapesacks/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=SACKS&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -135,8 +140,9 @@ router.get('/scrapesacks', (req, res) => {
     });
 })
 
-router.get('/scrapeinterceptions', (req, res) => {
-    let baseUrl = "http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=INTERCEPTIONS&season=2017&seasonType=REG";
+router.get('/scrapeinterceptions/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.nfl.com/stats/categorystats?tabSeq=0&statisticCategory=INTERCEPTIONS&season=' + year + '&seasonType=REG';
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -163,8 +169,9 @@ router.get('/scrapeinterceptions', (req, res) => {
     });
 })
 
-router.get('/scrapestandings', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/standings";
+router.get('/scrapestandings/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/standings/_/season/' + year;
     let standings = [];
 
     request(baseUrl, function (err, response, html) {
@@ -203,8 +210,9 @@ router.get('/scrapestandings', (req, res) => {
     })
 })
 
-router.get('/scrapeoffensetotal', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/year/2017";
+router.get('/scrapeoffensetotal/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -229,8 +237,9 @@ router.get('/scrapeoffensetotal', (req, res) => {
     });
 })
 
-router.get('/scrapeoffensepassing', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/passing/year/2017";
+router.get('/scrapeoffensepassing/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/passing/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -253,8 +262,9 @@ router.get('/scrapeoffensepassing', (req, res) => {
     });
 })
 
-router.get('/scrapeoffenserushing', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/rushing/year/2017";
+router.get('/scrapeoffenserushing/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/rushing/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -278,10 +288,11 @@ router.get('/scrapeoffenserushing', (req, res) => {
     });
 })
 
-router.get('/scrapeoffensereceiving', (req, res) => {
+router.get('/scrapeoffensereceiving/:year', (req, res) => {
+    let year = req.params.year;    
     console.log('receiving');
     
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/receiving/year/2017";
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/receiving/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -306,8 +317,9 @@ router.get('/scrapeoffensereceiving', (req, res) => {
     });
 })
 
-router.get('/scrapedefensetotal', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/2017";
+router.get('/scrapedefensetotal/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -332,8 +344,9 @@ router.get('/scrapedefensetotal', (req, res) => {
     });
 })
 
-router.get('/scrapedefensetotal', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/2017";
+router.get('/scrapedefensetotal/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {
@@ -356,8 +369,9 @@ router.get('/scrapedefensetotal', (req, res) => {
     });
 })
 
-router.get('/scrapedefensedetail', (req, res) => {
-    let baseUrl = "http://www.espn.com/nfl/statistics/team/_/stat/defense/position/defense/year/2017";
+router.get('/scrapedefensedetail/:year', (req, res) => {
+    let year = req.params.year;    
+    let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/defense/position/defense/year/' + year;
     let stats = [];
 
     request(baseUrl, function (err, response, html) {

@@ -33,6 +33,11 @@ body {
   width: 90%;
 }
 
+.header-buttons {
+  display: flex;
+  align-items: flex-start;
+}
+
 #standings {
   display: flex;
 }
@@ -44,13 +49,6 @@ body {
 .standings-table {
   flex: 5;
   margin: 0 30px;
-}
-
-#barchart {
-  margin-bottom: 30px;
-}
-
-.standings-table {
 }
 
 .standings-row {

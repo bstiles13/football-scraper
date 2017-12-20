@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const scrapePassing = () => {
+export const scrapePassing = (year) => {
     return function (dispatch) {
-        axios.get('/scrapepassing').then(data => {
+        axios.get('/scrapepassing/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -13,9 +13,9 @@ export const scrapePassing = () => {
     }
 }
 
-export const scrapeRushing = () => {
+export const scrapeRushing = (year) => {
     return function (dispatch) {
-        axios.get('/scraperushing').then(data => {
+        axios.get('/scraperushing/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -26,9 +26,9 @@ export const scrapeRushing = () => {
     }
 }
 
-export const scrapeReceiving = () => {
+export const scrapeReceiving = (year) => {
     return function (dispatch) {
-        axios.get('/scrapereceiving').then(data => {
+        axios.get('/scrapereceiving/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -39,9 +39,9 @@ export const scrapeReceiving = () => {
     }
 }
 
-export const scrapeTackles = () => {
+export const scrapeTackles = (year) => {
     return function (dispatch) {
-        axios.get('/scrapetackles').then(data => {
+        axios.get('/scrapetackles/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -52,9 +52,9 @@ export const scrapeTackles = () => {
     }
 }
 
-export const scrapeSacks = () => {
+export const scrapeSacks = (year) => {
     return function (dispatch) {
-        axios.get('/scrapesacks').then(data => {
+        axios.get('/scrapesacks/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -65,9 +65,9 @@ export const scrapeSacks = () => {
     }
 }
 
-export const scrapeInterceptions = () => {
+export const scrapeInterceptions = (year) => {
     return function (dispatch) {
-        axios.get('/scrapeinterceptions').then(data => {
+        axios.get('/scrapeinterceptions/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -78,9 +78,9 @@ export const scrapeInterceptions = () => {
     }
 }
 
-export const scrapeStandings = () => {
+export const scrapeStandings = (year) => {
     return function (dispatch) {
-        axios.get('/scrapestandings').then(data => {
+        axios.get('/scrapestandings/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -91,9 +91,9 @@ export const scrapeStandings = () => {
     }
 }
 
-export const scrapeOffenseTotal = () => {
+export const scrapeOffenseTotal = (year) => {
     return function (dispatch) {
-        axios.get('/scrapeoffensetotal').then(data => {
+        axios.get('/scrapeoffensetotal/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -104,9 +104,9 @@ export const scrapeOffenseTotal = () => {
     }
 }
 
-export const scrapeOffensePassing = () => {
+export const scrapeOffensePassing = (year) => {
     return function (dispatch) {
-        axios.get('/scrapeoffensepassing').then(data => {
+        axios.get('/scrapeoffensepassing/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -117,9 +117,9 @@ export const scrapeOffensePassing = () => {
     }
 }
 
-export const scrapeOffenseRushing = () => {
+export const scrapeOffenseRushing = (year) => {
     return function (dispatch) {
-        axios.get('/scrapeoffenserushing').then(data => {
+        axios.get('/scrapeoffenserushing/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -130,10 +130,10 @@ export const scrapeOffenseRushing = () => {
     }
 }
 
-export const scrapeOffenseReceiving = () => {
+export const scrapeOffenseReceiving = (year) => {
     console.log('doing');
     return function (dispatch) {
-        axios.get('/scrapeoffensereceiving').then(data => {
+        axios.get('/scrapeoffensereceiving/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -144,9 +144,9 @@ export const scrapeOffenseReceiving = () => {
     }
 }
 
-export const scrapeDefenseTotal = () => {
+export const scrapeDefenseTotal = (year) => {
     return function (dispatch) {
-        axios.get('/scrapedefensetotal').then(data => {
+        axios.get('/scrapedefensetotal/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {
@@ -157,9 +157,9 @@ export const scrapeDefenseTotal = () => {
     }
 }
 
-export const scrapeDefenseDetail = () => {
+export const scrapeDefenseDetail = (year) => {
     return function (dispatch) {
-        axios.get('/scrapedefensedetail').then(data => {
+        axios.get('/scrapedefensedetail/' + year).then(data => {
             dispatch({
                 type: 'SCRAPE',
                 payload: {

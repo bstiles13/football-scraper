@@ -6,3 +6,12 @@ export const toggleStandings = (view) => {
         }
     }
 }
+
+export const toggleYear = (year) => {
+    return {
+        type: 'SET_TOGGLE',
+        payload: {
+            toggleYear: year
+        }
+    }
+}

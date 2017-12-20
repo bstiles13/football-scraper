@@ -25,20 +25,31 @@ const cheerio = require('cheerio');
 
 class App extends Component {
 
+  componentDidUpdate(prevProps) {
+    if (this.props.toggles.toggleYear != prevProps.toggles.toggleYear) {
+      this.scrape();
+    }
+  }
+
   componentDidMount() {
-    this.props.scrapeStandings()        
-    this.props.scrapePassing();
-    this.props.scrapeRushing();
-    this.props.scrapeReceiving();
-    this.props.scrapeTackles();
-    this.props.scrapeSacks();
-    this.props.scrapeInterceptions();
-    this.props.scrapeOffenseTotal();
-    this.props.scrapeOffensePassing();
-    this.props.scrapeOffenseRushing();
-    this.props.scrapeOffenseReceiving();
-    this.props.scrapeDefenseTotal();
-    this.props.scrapeDefenseDetail(); 
+    this.scrape();
+  }
+
+  scrape() {
+    let year = this.props.toggles.toggleYear;
+    this.props.scrapeStandings(year)
+    this.props.scrapePassing(year);
+    this.props.scrapeRushing(year);
+    this.props.scrapeReceiving(year);
+    this.props.scrapeTackles(year);
+    this.props.scrapeSacks(year);
+    this.props.scrapeInterceptions(year);
+    this.props.scrapeOffenseTotal(year);
+    this.props.scrapeOffensePassing(year);
+    this.props.scrapeOffenseRushing(year);
+    this.props.scrapeOffenseReceiving(year);
+    this.props.scrapeDefenseTotal(year);
+    this.props.scrapeDefenseDetail(year);
   }
 
   render() {

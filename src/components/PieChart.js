@@ -22,6 +22,7 @@ export default class PieChart extends React.Component {
         let height = 210;
         let radius = width / 2;
 
+        document.getElementById('chart-' + this.props.type).innerHTML = '';
         let svg = d3.select('#chart-' + this.props.type)
             .append('svg')
             .data([dataset])
