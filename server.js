@@ -1,18 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes.js');
-const mongoose = require('mongoose');
-
-const target = "football_db";
-const db = process.env.MONGODB_URI || "mongodb://localhost/" + target;
-
-mongoose.connect(db, err => {
-    if (err) {
-        throw err;
-    } else {
-        console.log('Successful MongoDB connection to ' + target);
-    }
-})
 
 const PORT = process.env.PORT || 3001;
 const app = express();
