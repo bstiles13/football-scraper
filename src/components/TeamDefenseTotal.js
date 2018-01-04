@@ -10,22 +10,22 @@ export default class TeamDefenseTotal extends React.Component {
                 <Header title='Total Defense' />
                 <div className='horizontal-charts'>
                     <div className='charts-child'>
-                        <h5>YDS/G Allowed</h5>
-                        <PieChart stats={this.props.stats} type='averageTotal' />
+                        <h5>Total Yards / Game Allowed</h5>
+                        <PieChart stats={this.props.stats} type='averageTotal' descending={true} />
                     </div>
                     <div className='charts-child'>
-                        <h5>P YDS/G Allowed</h5>
-                        <PieChart stats={this.props.stats} type='averagePass' />
+                        <h5>Passing Yards / Game Allowed</h5>
+                        <PieChart stats={this.props.stats} type='averagePass' descending={true} />
                     </div>
                 </div>
                 <div className='horizontal-charts'>
                     <div className='charts-child'>
-                        <h5>R YDS/G Allowed</h5>
-                        <PieChart stats={this.props.stats} type='averageRush' />
+                        <h5>Rushing Yards / Game Allowed</h5>
+                        <PieChart stats={this.props.stats} type='averageRush' descending={true} />
                     </div>
                     <div className='charts-child'>
-                        <h5>PTS/G Allowed</h5>
-                        <PieChart stats={this.props.stats} type='pointsPerGame' />
+                        <h5>Points / Game Allowed</h5>
+                        <PieChart stats={this.props.stats} type='averagePoints' descending={true} />
                     </div>
                 </div>
             </div>

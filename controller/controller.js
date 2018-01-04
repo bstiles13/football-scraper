@@ -342,32 +342,7 @@ const controller = {
                 team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
                 team.averageRush = parseInt($(row).children('td:nth-child(4)').text());
                 team.points = parseInt($(row).children('td:nth-child(9)').text());
-                team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
-                stats.push(team);
-            })
-            stats = stats.slice(1);
-            res.json(stats);
-        });
-    },
-
-    scrapeDefenseTotal: (req, res) => {
-        let year = req.params.year;
-        let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/' + year;
-        let stats = [];
-
-        request(baseUrl, function (err, response, html) {
-
-            let $ = cheerio.load(html.toString());
-            $('table tr').each(function (i, row) {
-
-                let team = {};
-                team.team = $(row).children('td:nth-child(2)').children('a').text();
-                team.yards = parseInt($(row).children('td:nth-child(3)').text().replace(/,/g, ''));
-                team.yardsPerGame = parseInt($(row).children('td:nth-child(4)').text());
-                team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
-                team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
-                team.points = parseInt($(row).children('td:nth-child(9)').text());
-                team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
+                team.averagePoints = parseInt($(row).children('td:nth-child(10)').text());
                 stats.push(team);
             })
             stats = stats.slice(1);

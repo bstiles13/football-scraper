@@ -13,9 +13,16 @@ export default class PieChart extends React.Component {
 
     buildChart() {
         let that = this;
-        let dataset = this.props.stats.sort(function (a, b) {
-            return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
-        });
+        let dataset;
+        if (!this.props.descending) {
+            dataset = this.props.stats.sort(function (a, b) {
+                return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
+            });
+        } else {
+            dataset = this.props.stats.sort(function (a, b) {
+                return parseFloat(a[that.props.type]) - parseFloat(b[that.props.type]);
+            });
+        }
         dataset = dataset.slice(0, 5);
 
         let width = 210;
@@ -59,9 +66,16 @@ export default class PieChart extends React.Component {
 
     buildLegend() {
         let that = this;
-        let dataset = this.props.stats.sort(function (a, b) {
-            return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
-        });
+        let dataset;
+        if (!this.props.descending) {
+            dataset = this.props.stats.sort(function (a, b) {
+                return parseFloat(b[that.props.type]) - parseFloat(a[that.props.type]);
+            });
+        } else {
+            dataset = this.props.stats.sort(function (a, b) {
+                return parseFloat(a[that.props.type]) - parseFloat(b[that.props.type]);
+            });
+        }
         dataset = dataset.slice(0, 5);
         return dataset.map((item, index) => {
             return (

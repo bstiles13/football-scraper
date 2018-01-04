@@ -28,4 +28,9 @@ router.get('/scrapedefensetotal/:year', controller.scrapeDefenseTotal);
 
 router.get('/scrapedefensedetail/:year', controller.scrapeDefenseDetail);
 
+// Default route that sends HTML file to browser
+router.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + './build/index.html'));
+})
+
 module.exports = router;

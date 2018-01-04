@@ -26,11 +26,11 @@ export default class Preview extends React.Component {
         return (
             <div className='preview-container'>
                 <div className='preview-header'>
-                    <span>{this.props.category.toUpperCase()}</span>
+                    <span>{this.props.title.toUpperCase()}</span>
                     <Link to={'/' + this.props.category} style={{color: 'white'}}>Complete List</Link>
                 </div>
                 <div className='preview-content'>
-                    <img src={images[this.props.category]} className='preview-image' style={{width: '120px', height: '110px'}}/>
+                    <img src={images[this.props.category]} className='preview-image' style={{width: '120px', height: '110px'}} onError={(event) => event.target.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/PICOL_icon_Football.svg/2000px-PICOL_icon_Football.svg.png")}/>
                     <div className='preview-list'>
                         {this.renderRows()}
                     </div>
@@ -46,5 +46,6 @@ const images = {
     receiving: 'https://cdn3.iconfinder.com/data/icons/american-football-2/292/american-football-player-014-512.png',
     tackles: 'https://cdn3.iconfinder.com/data/icons/american-football-2/239/american-football-player-016-512.png',
     sacks: 'https://images.vexels.com/media/users/3/131988/isolated/preview/bdddce6b399e0b4b6a09aed763849530-el-jugador-de-rugby-la-celebraci-n-de-la-silueta-by-vexels.png',
-    interceptions: 'https://image.flaticon.com/icons/png/512/53/53505.png'
+    interceptions: 'https://image.flaticon.com/icons/png/512/53/53505.png',
+    other: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/PICOL_icon_Football.svg/2000px-PICOL_icon_Football.svg.png'
 }
