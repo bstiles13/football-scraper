@@ -8,8 +8,8 @@ export default class SacksComponent extends React.Component {
         return (
             <div>
                 <Header title='Sack Statistics' />
-                <div className='defense-container'>
-                    <div className='vertical-charts'>
+                <div className='custom-container'>
+                    <div className='vertical-charts custom-container-charts'>
                         <div className='charts-child'>
                             <h5>Sacks</h5>
                             <PieChart stats={this.props.stats} type='sacks' />
@@ -23,7 +23,9 @@ export default class SacksComponent extends React.Component {
                             <PieChart stats={this.props.stats} type='fumbles' />
                         </div>
                     </div>
-                    <SacksTable stats={this.props.stats} />
+                    <div className='custom-container-table'>
+                        <SacksTable stats={this.props.stats} />
+                    </div>
                 </div>
             </div>
         )

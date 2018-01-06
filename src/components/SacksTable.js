@@ -1,39 +1,60 @@
 import React from 'react';
+import ReactTable from 'react-table'
 
 export default class SacksTable extends React.Component {
 
     renderRows() {
-        let passingStats = this.props.stats;
-        if (passingStats) {
-            passingStats.sort(function (a, b) {
-                return parseFloat(b.sacks) - parseFloat(a.sacks);
-            });
-            return passingStats.map((row, index) => {
-                return (
-                    <div className='custom-row' key={index}>
-                        <th className='custom-column custom-column-shorten'>{index + 1}</th>
-                        <th className='custom-column custom-column-extended'>{row.player}</th>
-                        <th className='custom-column'>{row.team}</th>
-                        <td className='custom-column'>{row.sacks}</td>
-                        <td className='custom-column'>{row.tackles}</td>
-                        <td className='custom-column'>{row.fumbles}</td>
-                    </div>
-                )
-            })
+        let stats = this.props.stats;
+        if (stats) {
+            return (
+                <ReactTable
+                    data={stats}
+                    columns={[
+                        {
+                            Header: '#',
+                            accessor: 'index',
+                            Cell: row => (
+                                <div>{row.viewIndex + 1}</div>
+                            )
+                        },
+                        {
+                            Header: 'Player',
+                            accessor: 'player'
+                        },
+                        {
+                            Header: 'Team',
+                            accessor: 'team',
+                        },
+                        {
+                            Header: 'Sacks',
+                            accessor: 'sacks',
+                        },
+                        {
+                            Header: 'Tackles',
+                            accessor: 'tackles',
+                        },
+                        {
+                            Header: 'Fumbles',
+                            accessor: 'fumbles',
+                        }
+                    ]}
+                    defaultSorted={[
+                        {
+                            id: "sacks",
+                            desc: true
+                        }
+                    ]}
+                    className="-striped -highlight"
+                    defaultPageSize={50}
+                    showPagination={false}
+                />
+            )
         }
     }
 
     render() {
         return (
-            <div className='custom-table'>
-                <div className='custom-row custom-header'>
-                    <div className='custom-column custom-column-shorten'>#</div>
-                    <div className='custom-column custom-column-extended'>Player</div>
-                    <div className='custom-column'>Team</div>
-                    <div className='custom-column'>Sacks</div>
-                    <div className='custom-column'>Tackles</div>
-                    <div className='custom-column'>Fumbles</div>
-                </div>
+            <div>
                 {this.renderRows()}
             </div>
         )
