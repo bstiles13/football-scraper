@@ -340,7 +340,7 @@ const controller = {
                 team.yardsPass = parseInt($(row).children('td:nth-child(5)').text().replace(/,/g, ''));
                 team.averagePass = parseInt($(row).children('td:nth-child(6)').text());
                 team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
-                team.averageRush = parseInt($(row).children('td:nth-child(4)').text());
+                team.averageRush = parseInt($(row).children('td:nth-child(8)').text());
                 team.points = parseInt($(row).children('td:nth-child(9)').text());
                 team.averagePoints = parseInt($(row).children('td:nth-child(10)').text());
                 stats.push(team);
