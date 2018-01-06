@@ -1,41 +1,64 @@
 import React from 'react';
+import ReactTable from 'react-table'
 
 export default class InterceptionsTable extends React.Component {
 
     renderRows() {
-        let passingStats = this.props.stats;
-        if (passingStats) {
-            passingStats.sort(function (a, b) {
-                return parseFloat(b.interceptions) - parseFloat(a.interceptions);
-            });
-            return passingStats.map((row, index) => {
-                return (
-                    <div className='custom-row' key={index}>
-                        <th className='custom-column custom-column-shorten'>{index + 1}</th>
-                        <th className='custom-column custom-column-extended'>{row.player}</th>
-                        <th className='custom-column'>{row.team}</th>
-                        <td className='custom-column'>{row.interceptions}</td>
-                        <td className='custom-column'>{row.deflections}</td>
-                        <td className='custom-column'>{row.touchdowns}</td>
-                        <td className='custom-column'>{row.tackles}</td>
-                    </div>
-                )
-            })
+        let stats = this.props.stats;
+        if (stats) {
+            return (
+                <ReactTable
+                    data={stats}
+                    columns={[
+                        {
+                            Header: '#',
+                            accessor: 'index',
+                            Cell: row => (
+                                <div>{row.viewIndex + 1}</div>
+                            )
+                        },
+                        {
+                            Header: 'Player',
+                            accessor: 'player'
+                        },
+                        {
+                            Header: 'Team',
+                            accessor: 'team',
+                        },
+                        {
+                            Header: 'Interceptions',
+                            accessor: 'interceptions',
+                        },
+                        {
+                            Header: 'Deflections',
+                            accessor: 'deflections',
+                        },
+                        {
+                            Header: 'Touchdowns',
+                            accessor: 'touchdowns',
+                        },
+                        {
+                            Header: 'Tackles',
+                            accessor: 'tackles',
+                        }
+                    ]}
+                    defaultSorted={[
+                        {
+                            id: "interceptions",
+                            desc: true
+                        }
+                    ]}
+                    className="-striped -highlight"
+                    defaultPageSize={50}
+                    showPagination={false}
+                />
+            )
         }
     }
 
     render() {
         return (
-            <div className='custom-table'>
-                <div className='custom-row custom-header'>
-                    <div className='custom-column custom-column-shorten'>#</div>
-                    <div className='custom-column custom-column-extended'>Player</div>
-                    <div className='custom-column'>Team</div>
-                    <div className='custom-column'>Interceptions</div>
-                    <div className='custom-column'>Deflections</div>
-                    <div className='custom-column'>Touchdowns</div>
-                    <div className='custom-column'>Tackles</div>
-                </div>
+            <div>
                 {this.renderRows()}
             </div>
         )

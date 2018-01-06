@@ -8,8 +8,8 @@ export default class InterceptionsComponent extends React.Component {
         return (
             <div>
                 <Header title='Interception Statistics' />
-                <div className='defense-container'>
-                    <div className='vertical-charts'>
+                <div className='custom-container'>
+                    <div className='vertical-charts custom-container-charts'>
                         <div className='charts-child'>
                             <h5>Interceptions</h5>
                             <PieChart stats={this.props.stats} type='interceptions' />
@@ -23,7 +23,9 @@ export default class InterceptionsComponent extends React.Component {
                             <PieChart stats={this.props.stats} type='touchdowns' />
                         </div>
                     </div>
-                    <InterceptionsTable stats={this.props.stats} />
+                    <div className='custom-container-table'>
+                        <InterceptionsTable stats={this.props.stats} />
+                    </div>
                 </div>
             </div>
         )
