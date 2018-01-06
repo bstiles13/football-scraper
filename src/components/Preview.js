@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import passingIcon from '../assets/images/passing.png'
+import rushingIcon from '../assets/images/rushing.png'
+import receivingIcon from '../assets/images/receiving.png'
+import tacklesIcon from '../assets/images/tackles.png'
+import sacksIcon from '../assets/images/sacks.png'
+import interceptionsIcon from '../assets/images/interceptions.png'
+import otherIcon from '../assets/images/other.png'
 
 export default class Preview extends React.Component {
 
@@ -41,11 +48,12 @@ export default class Preview extends React.Component {
 }
 
 const images = {
-    passing: 'http://downloadclipart.org/do-upload/clipart/2016-07/American_football_player_icon.png',
-    rushing: 'https://image.flaticon.com/icons/png/512/53/53336.png',
-    receiving: 'https://cdn3.iconfinder.com/data/icons/american-football-2/292/american-football-player-014-512.png',
-    tackles: 'https://cdn3.iconfinder.com/data/icons/american-football-2/239/american-football-player-016-512.png',
-    sacks: 'https://images.vexels.com/media/users/3/131988/isolated/preview/bdddce6b399e0b4b6a09aed763849530-el-jugador-de-rugby-la-celebraci-n-de-la-silueta-by-vexels.png',
-    interceptions: 'https://image.flaticon.com/icons/png/512/53/53505.png',
-    other: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/PICOL_icon_Football.svg/2000px-PICOL_icon_Football.svg.png'
+    passing: passingIcon,
+    rushing: rushingIcon,
+    receiving: receivingIcon,
+    tackles: tacklesIcon,
+    sacks: sacksIcon,
+    interceptions: interceptionsIcon,
+    offensetotal: otherIcon,
+    defensetotal: otherIcon    
 }

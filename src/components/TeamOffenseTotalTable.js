@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTable from 'react-table'
 
-export default class TeamDefenseTable extends React.Component {
+export default class TeamOffenseTotalTable extends React.Component {
 
     renderRows() {
         let stats = this.props.stats;
@@ -41,7 +41,7 @@ export default class TeamDefenseTable extends React.Component {
                     defaultSorted={[
                         {
                             id: "averageTotal",
-                            desc: false
+                            desc: true
                         }
                     ]}
                     className="-striped -highlight"

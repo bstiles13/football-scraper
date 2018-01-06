@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import PieChart from './PieChart';
-import TeamDefenseTable from './TeamDefenseTable';
+import TeamDefenseTotalTable from './TeamDefenseTotalTable';
 
 export default class TeamDefenseTotal extends React.Component {
     render() {
@@ -28,7 +28,7 @@ export default class TeamDefenseTotal extends React.Component {
                         </div>
                     </div>
                     <div className='custom-container-table'>
-                        <TeamDefenseTable stats={this.props.stats} />
+                        <TeamDefenseTotalTable stats={this.props.stats} />
                     </div>
                 </div>
             </div>

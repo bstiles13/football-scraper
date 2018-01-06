@@ -13,11 +13,12 @@ import SacksComponent from './SacksComponent';
 import InterceptionsComponent from './InterceptionsComponent';
 import TeamStats from './TeamStats';
 import TeamOffenseTotal from './TeamOffenseTotal';
+import TeamOffenseSkill from './TeamOffenseTotal';
 import TeamDefenseTotal from './TeamDefenseTotal';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions, scrapeOffenseTotal, scrapeOffensePassing, scrapeOffenseRushing, scrapeOffenseReceiving, scrapeDefenseTotal, scrapeDefenseDetail } from '../actions/scrapeAction';
+import { scrapeStandings, scrapePassing, scrapeRushing, scrapeReceiving, scrapeTackles, scrapeSacks, scrapeInterceptions, scrapeOffenseTotal, scrapeOffensePassing, scrapeOffenseRushing, scrapeOffenseReceiving, scrapeDefenseTotal, scrapeDefenseSkill } from '../actions/scrapeAction';
 import { toggleStandings } from '../actions/toggleAction';
 
 const request = require('request');
@@ -44,12 +45,12 @@ class App extends Component {
     this.props.scrapeTackles(year);
     this.props.scrapeSacks(year);
     this.props.scrapeInterceptions(year);
-    this.props.scrapeOffenseTotal(year);
+    this.props.scrapeOffenseTotal(year);    
     this.props.scrapeOffensePassing(year);
     this.props.scrapeOffenseRushing(year);
     this.props.scrapeOffenseReceiving(year);
     this.props.scrapeDefenseTotal(year);
-    this.props.scrapeDefenseDetail(year);
+    this.props.scrapeDefenseSkill(year);
   }
 
   render() {
@@ -67,6 +68,7 @@ class App extends Component {
           <Route path="/interceptions" render={props => <InterceptionsComponent stats={this.props.stats.interceptions} />} />
           <Route path="/teamstats" render={props => <TeamStats stats={this.props.stats} />} />
           <Route path="/offensetotal" render={props => <TeamOffenseTotal stats={this.props.stats.offenseTotal} />} />
+          <Route path="/offenseskill" render={props => <TeamOffenseSkill stats={this.props.stats.offenseDetail} />} />
           <Route path="/defensetotal" render={props => <TeamDefenseTotal stats={this.props.stats.defenseTotal} />} />
         </div>
       </BrowserRouter>
@@ -95,7 +97,7 @@ function matchDispatchToProps(dispatch) {
     scrapeOffenseRushing: scrapeOffenseRushing,
     scrapeOffenseReceiving: scrapeOffenseReceiving,
     scrapeDefenseTotal: scrapeDefenseTotal,
-    scrapeDefenseDetail: scrapeDefenseDetail,
+    scrapeDefenseSkill: scrapeDefenseSkill,
     toggleStandings: toggleStandings
   }, dispatch)
 }

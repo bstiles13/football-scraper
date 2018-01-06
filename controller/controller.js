@@ -350,7 +350,7 @@ const controller = {
         });
     },
 
-    scrapeDefenseDetail: (req, res) => {
+    scrapeDefenseSkill: (req, res) => {
         let year = req.params.year;
         let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/defense/position/defense/year/' + year;
         let stats = [];

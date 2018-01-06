@@ -26,7 +26,7 @@ router.get('/scrapeoffensereceiving/:year', controller.scrapeOffenseReceiving);
 
 router.get('/scrapedefensetotal/:year', controller.scrapeDefenseTotal);
 
-router.get('/scrapedefensedetail/:year', controller.scrapeDefenseDetail);
+router.get('/scrapedefenseskill/:year', controller.scrapeDefenseSkill);
 
 // Default route that sends HTML file to browser
 router.get('/', function (req, res) {

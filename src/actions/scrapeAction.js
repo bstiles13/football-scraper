@@ -157,7 +157,7 @@ export const scrapeDefenseTotal = (year) => {
     }
 }
 
-export const scrapeDefenseDetail = (year) => {
+export const scrapeDefenseSkill = (year) => {
     return function (dispatch) {
         axios.get('/scrapedefensedetail/' + year).then(data => {
             dispatch({
