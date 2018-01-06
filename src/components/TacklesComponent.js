@@ -8,8 +8,8 @@ export default class TacklesComponent extends React.Component {
         return (
             <div>
                 <Header title='Tackling Statistics' />
-                <div className='defense-container'>
-                    <div className='vertical-charts defense-container-charts'>
+                <div className='custom-container'>
+                    <div className='vertical-charts custom-container-charts'>
                         <div className='charts-child'>
                             <h5>Tackles</h5>
                             <PieChart stats={this.props.stats} type='tackles' />
@@ -23,7 +23,9 @@ export default class TacklesComponent extends React.Component {
                             <PieChart stats={this.props.stats} type='assisted' />
                         </div>
                     </div>
-                    <TacklesTable stats={this.props.stats} />
+                    <div className='custom-container-table'>
+                        <TacklesTable stats={this.props.stats} />
+                    </div>
                 </div>
             </div>
         )

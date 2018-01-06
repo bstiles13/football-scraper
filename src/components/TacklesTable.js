@@ -1,39 +1,60 @@
 import React from 'react';
+import ReactTable from 'react-table'
 
-export default class RushingTable extends React.Component {
+export default class TacklesTable extends React.Component {
 
     renderRows() {
-        let passingStats = this.props.stats;
-        if (passingStats) {
-            passingStats.sort(function (a, b) {
-                return parseFloat(b.tackles) - parseFloat(a.tackles);
-            });
-            return passingStats.map((row, index) => {
-                return (
-                    <div className='custom-row' key={index}>
-                        <th className='custom-column custom-column-shorten'>{index + 1}</th>
-                        <th className='custom-column custom-column-extended'>{row.player}</th>
-                        <th className='custom-column'>{row.team}</th>
-                        <td className='custom-column'>{row.tackles}</td>
-                        <td className='custom-column'>{row.solo}</td>
-                        <td className='custom-column'>{row.assisted}</td>
-                    </div>
-                )
-            })
+        let stats = this.props.stats;
+        if (stats) {
+            return (
+                <ReactTable
+                    data={stats}
+                    columns={[
+                        {
+                            Header: '#',
+                            accessor: 'index',
+                            Cell: row => (
+                                <div>{row.viewIndex + 1}</div>
+                            )
+                        },
+                        {
+                            Header: 'Player',
+                            accessor: 'player'
+                        },
+                        {
+                            Header: 'Team',
+                            accessor: 'team',
+                        },
+                        {
+                            Header: 'Tackles',
+                            accessor: 'tackles',
+                        },
+                        {
+                            Header: 'Solo',
+                            accessor: 'solo',
+                        },
+                        {
+                            Header: 'Assisted',
+                            accessor: 'assisted',
+                        }
+                    ]}
+                    defaultSorted={[
+                        {
+                            id: "tackles",
+                            desc: true
+                        }
+                    ]}
+                    className="-striped -highlight"
+                    defaultPageSize={50}
+                    showPagination={false}
+                />
+            )
         }
     }
 
     render() {
         return (
-            <div className='custom-table'>
-                <div className='custom-row custom-header'>
-                    <div className='custom-column custom-column-shorten'>#</div>
-                    <div className='custom-column custom-column-extended'>Player</div>
-                    <div className='custom-column'>Team</div>
-                    <div className='custom-column'>Total</div>
-                    <div className='custom-column'>Solo</div>
-                    <div className='custom-column'>Assisted</div>
-                </div>
+            <div>
                 {this.renderRows()}
             </div>
         )
