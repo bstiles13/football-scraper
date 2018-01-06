@@ -27,7 +27,9 @@ export default class PassingComponent extends React.Component {
                             <PieChart stats={this.props.stats} type='interceptions' />
                         </div>
                     </div>
-                    <PassingTable stats={this.props.stats} />
+                    <div className='custom-container-table'>
+                        <PassingTable stats={this.props.stats} />
+                    </div>
                 </div>
             </div>
         )

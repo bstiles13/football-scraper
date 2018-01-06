@@ -58,7 +58,7 @@ export default class PassingTable extends React.Component {
 
     render() {
         return (
-            <div className='custom-container-table'>
+            <div>
                 {this.renderRows()}
             </div>
         )
