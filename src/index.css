@@ -117,17 +117,17 @@ body {
   margin-left: 10px;
 }
 
-.defense-container {
+.custom-container {
   display: flex;
   padding: 30px;
 }
 
-.defense-container-charts {
+.custom-container-charts {
   flex: 1;
 }
 
-.defense-container-table {
-  flex: 2;
+.custom-container-table {
+  flex: 3;
 }
 
 .horizontal-charts {
