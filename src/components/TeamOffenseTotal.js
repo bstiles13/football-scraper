@@ -1,31 +1,34 @@
 import React from 'react';
 import Header from './Header';
 import PieChart from './PieChart';
-import PassingTable from './PassingTable';
+import TeamOffenseTable from './TeamOffenseTable';
 
 export default class TeamOffenseTotal extends React.Component {
     render() {
         return (
             <div>
                 <Header title='Total Offense' />
-                <div className='horizontal-charts'>
-                    <div className='charts-child'>
-                        <h5>Total Yards / Game</h5>
-                        <PieChart stats={this.props.stats} type='averageTotal' />
+                <div className='custom-container'>
+                    <div className='vertical-charts custom-container-charts'>
+                        <div className='charts-child'>
+                            <h5>Total Yards / Game</h5>
+                            <PieChart stats={this.props.stats} type='averageTotal' />
+                        </div>
+                        <div className='charts-child'>
+                            <h5>Passing Yards / Game</h5>
+                            <PieChart stats={this.props.stats} type='averagePass' />
+                        </div>
+                        <div className='charts-child'>
+                            <h5>Rushing Yards / Game</h5>
+                            <PieChart stats={this.props.stats} type='averageRush' />
+                        </div>
+                        <div className='charts-child'>
+                            <h5>Points / Game</h5>
+                            <PieChart stats={this.props.stats} type='averagePoints' />
+                        </div>
                     </div>
-                    <div className='charts-child'>
-                        <h5>Passing Yards / Game</h5>
-                        <PieChart stats={this.props.stats} type='averagePass' />
-                    </div>
-                </div>
-                <div className='horizontal-charts'>
-                    <div className='charts-child'>
-                        <h5>Rushing Yards / Game</h5>
-                        <PieChart stats={this.props.stats} type='averageRush' />
-                    </div>
-                    <div className='charts-child'>
-                        <h5>Points / Game</h5>
-                        <PieChart stats={this.props.stats} type='pointsPerGame' />
+                    <div className='custom-container-table'>
+                        <TeamOffenseTable stats={this.props.stats} />
                     </div>
                 </div>
             </div>

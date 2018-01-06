@@ -235,7 +235,7 @@ const controller = {
                 team.yardsRush = parseInt($(row).children('td:nth-child(7)').text().replace(/,/g, ''));
                 team.averageRush = parseInt($(row).children('td:nth-child(8)').text());
                 team.points = parseInt($(row).children('td:nth-child(9)').text());
-                team.pointsPerGame = parseInt($(row).children('td:nth-child(10)').text());
+                team.averagePoints = parseInt($(row).children('td:nth-child(10)').text());
                 stats.push(team);
             })
             stats = stats.slice(1);
