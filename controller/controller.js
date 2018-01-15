@@ -325,7 +325,7 @@ const controller = {
 
     scrapeDefenseTotal: (req, res) => {
         let year = req.params.year;
-        let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/' + year;
+        let baseUrl = 'http://www.espn.com/nfl/statistics/team/_/stat/total/position/defense/year/' + year + '/seasontype/2';
         let stats = [];
 
         request(baseUrl, function (err, response, html) {
